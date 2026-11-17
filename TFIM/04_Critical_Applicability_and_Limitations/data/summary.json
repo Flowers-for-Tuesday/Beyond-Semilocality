@@ -1,0 +1,17 @@
+{
+  "rows": 837,
+  "coarse_scan_rows": 620,
+  "boundary_refinement_rows": 217,
+  "groups": 40,
+  "solver_invalid": 1,
+  "background_side_changes": 0,
+  "max_exact_quadrature_error": 2.801204514612073e-12,
+  "windows": 80,
+  "weak_order_count": 30,
+  "weak_order_range": [
+    1.9894272811686877,
+    2.014095169684782
+  ],
+  "resolved_window_boundaries": 77,
+  "unresolved_window_boundaries": 0
+}

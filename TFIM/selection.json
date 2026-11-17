@@ -1,0 +1,19 @@
+{
+  "retained": [
+    "Two No-Go structural obstructions",
+    "SARC variational/symmetry checks",
+    "24-group weak-field cancellation and tail causality",
+    "Existing higher-response and branch counterexamples",
+    "New critical-distance/amplitude window study",
+    "Finite-range coefficient refit control supporting SARC minimality; reconstructed from retained kernels, not recovered fifth-round files"
+  ],
+  "excluded": [
+    "GGA duplicate baseline",
+    "PLR/H2/L2 candidate comparisons",
+    "Unrelated parameter-tuning and high-order approximation searches; finite-range structural refit control retained",
+    "Repeated single-mode and dual-mode benchmarks",
+    "Broad old strong-field rankings",
+    "Old reports, caches, PDFs, package files and unused source modules"
+  ],
+  "history_policy": "Only TFIM remains as the research project. The old tfim_critical_dft tree and exploratory prompts are removed after selected data, source code, inputs and counterexample evidence are verified. Historical source names and SHA-256 values are provenance labels, not live dependencies."
+}

@@ -1,0 +1,7 @@
+{
+  "purpose": "Bracket each 1%/5% applicability threshold more tightly than the initial grid",
+  "maximum_failure_over_pass_amplitude": 1.12,
+  "maximum_steps": 8,
+  "selection": "Geometric bisection of first pass/fail bracket only",
+  "no_functional_change": true
+}

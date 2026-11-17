@@ -1,0 +1,69 @@
+{
+  "seed": 20261117,
+  "primary_functional": "SARC: exact homogeneous LDA + one full inverse-response-difference kernel",
+  "methods": [
+    "LDA",
+    "SARC-R8",
+    "SARC"
+  ],
+  "periods": [
+    64,
+    128,
+    256
+  ],
+  "sides": [
+    -1,
+    1
+  ],
+  "N_over_L": 8,
+  "lambda_over_mass": [
+    0.0003,
+    0.001,
+    0.003,
+    0.01
+  ],
+  "primary_max_lambda_over_mass": 0.003,
+  "field_families": [
+    "four_low_modes",
+    "mixed_scales",
+    "localized_packet",
+    "twelve_modes"
+  ],
+  "field_normalization": "zero mean and unit RMS; phases and amplitudes fixed before exact nonuniform calculation",
+  "tail_range": 8,
+  "background_nodes": 25,
+  "background_half_width_over_mass": 0.12,
+  "response_quadrature_order": 24,
+  "line_integral_orders": [
+    4,
+    8
+  ],
+  "finite_size_controls": {
+    "periods": [
+      64,
+      256
+    ],
+    "family": "localized_packet",
+    "lambda_over_mass": 0.0003,
+    "N_over_L": 12
+  },
+  "independent_optimizer": {
+    "period": 64,
+    "lambda_over_mass": 0.01,
+    "methods": [
+      "SARC-R8",
+      "SARC"
+    ]
+  },
+  "multistart": {
+    "period": 128,
+    "lambda_over_mass": 0.001,
+    "methods": [
+      "SARC-R8",
+      "SARC"
+    ]
+  },
+  "no_new_functional_parameters": true,
+  "new_hypothesis": "SARC Euler defect and density error are second order; within-functional relaxation penalty is fourth order. Removing tail returns first, first, second order when the linear mismatch is resolved.",
+  "energy_caveat": "Relaxation penalty compares two densities in the SAME candidate functional. It is not the candidate-minus-exact ground-state energy error."
+}

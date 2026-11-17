@@ -1,0 +1,45 @@
+New thermodynamic solver and broad-kernel functional tests passed
+SCAN 32 0.1 -1 four_low_modes rows 17 max relative 0.06418248469117105
+SCAN 32 0.1 -1 localized_packet rows 34 max relative 0.05707299071628993
+SCAN 32 0.1 1 four_low_modes rows 51 max relative 0.10774911853283435
+SCAN 32 0.1 1 localized_packet rows 68 max relative 0.20951580765088673
+SCAN 32 0.03 -1 four_low_modes rows 85 max relative 0.05063760089647291
+SCAN 32 0.03 -1 localized_packet rows 102 max relative 0.04415571133514106
+SCAN 32 0.03 1 four_low_modes rows 119 max relative 0.0755184755804708
+SCAN 32 0.03 1 localized_packet rows 136 max relative 0.12347161617087987
+SCAN 32 0.01 -1 four_low_modes rows 153 max relative 0.034560617585539875
+SCAN 32 0.01 -1 localized_packet rows 170 max relative 0.060433295239204675
+SCAN 32 0.01 1 four_low_modes rows 187 max relative 0.048939430140754706
+SCAN 32 0.01 1 localized_packet rows 204 max relative 0.08678669117606663
+SCAN 32 0.003 -1 four_low_modes rows 221 max relative 0.08925109420274502
+SCAN 32 0.003 -1 localized_packet rows 238 max relative 0.09281949466743597
+SCAN 32 0.003 1 four_low_modes rows 255 max relative 0.13040978024624264
+SCAN 32 0.003 1 localized_packet rows 272 max relative 0.17032320690823827
+SCAN 32 0.001 -1 four_low_modes rows 289 max relative 0.1599691259858956
+SCAN 32 0.001 -1 localized_packet rows 306 max relative 0.14766130866761457
+SCAN 32 0.001 1 four_low_modes rows 323 max relative 0.22364835404223965
+SCAN 32 0.001 1 localized_packet rows 340 max relative 0.26140854468282676
+SCAN 32 0.0003 -1 four_low_modes rows 357 max relative 0.1980849900523692
+SCAN 32 0.0003 -1 localized_packet rows 374 max relative 0.1830401918325144
+SCAN 32 0.0003 1 four_low_modes rows 391 max relative 0.28521263914509276
+SCAN 32 0.0003 1 localized_packet rows 408 max relative 0.325474335368735
+SCAN 32 0.0001 -1 four_low_modes rows 425 max relative 0.21108176096900227
+SCAN 32 0.0001 -1 localized_packet rows 442 max relative 0.1958875954778151
+SCAN 32 0.0001 1 four_low_modes rows 459 max relative 0.3018839149497302
+SCAN 32 0.0001 1 localized_packet rows 476 max relative 0.3424290652241211
+Building uniform kernel 64 1 434
+SCAN 64 0.09817477042468103 -1 four_low_modes rows 488 max relative 0.07810133432933004
+SCAN 64 0.09817477042468103 -1 localized_packet rows 500 max relative 0.07473089446588013
+SCAN 64 0.09817477042468103 1 four_low_modes rows 512 max relative 0.07795622340261886
+SCAN 64 0.09817477042468103 1 localized_packet rows 524 max relative 0.21187654562972685
+Building uniform kernel 128 1 434
+SCAN 128 0.04908738521234052 -1 four_low_modes rows 536 max relative 0.08800358281201281
+SCAN 128 0.04908738521234052 -1 localized_packet rows 548 max relative 0.08230652221260704
+SCAN 128 0.04908738521234052 1 four_low_modes rows 560 max relative 0.10475400852482009
+SCAN 128 0.04908738521234052 1 localized_packet rows 572 max relative 0.17670835906999882
+Building uniform kernel 256 1 434
+SCAN 256 0.02454369260617026 -1 four_low_modes rows 584 max relative 0.06422786769296777
+SCAN 256 0.02454369260617026 -1 localized_packet rows 596 max relative 0.08149620662502385
+SCAN 256 0.02454369260617026 1 four_low_modes rows 608 max relative 0.1307783659553059
+SCAN 256 0.02454369260617026 1 localized_packet rows 620 max relative 0.15019614175587248
+Window analysis {'rows': 620, 'groups': 40, 'solver_invalid': 1, 'background_side_changes': 0, 'max_exact_quadrature_error': 2.801204514612073e-12, 'windows': 80, 'weak_order_count': 30, 'weak_order_range': [1.9880937889297958, 2.014095169684782], 'resolved_window_boundaries': 77, 'unresolved_window_boundaries': 0}

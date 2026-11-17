@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-17T06:02:27.335587+00:00",
+  "provenance": "reconstructed experiment; original fifth-round files unavailable",
+  "config_sha256": "40952fc1c100455cb0ae318701cf78c87da73d164fea0a421bed3c27990258af",
+  "input_sha256": {
+    "03_Error-Cancellation_Mechanism/config/frozen_field_shapes.json": "96c194b4ec4d8a62328532f3b2d3445bacba4ece2b37ffa84d4e2eae5446daae",
+    "03_Error-Cancellation_Mechanism/profiles/weak_field_profiles.json": "a3a94d8337442d066183a04053bdcb504e3d9b90e167e972189efbf7875dc2d6",
+    "03_Error-Cancellation_Mechanism/data/weak_field_orders.csv": "1d7e091fc425a80449d4f2f965795a18b87721d693051632e0d204d6e12baf7b",
+    "03_Error-Cancellation_Mechanism/data/weak_field_results.csv": "455b576bb19e6de1ce0d07d2f04a190bcdbeb3d340a3f85146e81140636e2738",
+    "03_Error-Cancellation_Mechanism/cache/K_L64_side-1_fft512_nodes25.npz": "5baf22b6db2d6c52bcced62e03ac2cd967187e9b7120fcbafc4b3e54b0327a46",
+    "03_Error-Cancellation_Mechanism/cache/K_L64_side1_fft512_nodes25.npz": "ab6e683034e0bb39c1b35372cd06974d308d9b11c7bec9e50e3bab87591f45f0",
+    "03_Error-Cancellation_Mechanism/cache/K_L128_side-1_fft1024_nodes25.npz": "4f78444658d5988d8a99437d07cc57f9eb3bd9a41b1282f2d3a31cd032522f6e",
+    "03_Error-Cancellation_Mechanism/cache/K_L128_side1_fft1024_nodes25.npz": "07009036ae75371712b08cc145d53151fa3325c1678391d68f8ee3891814043e",
+    "03_Error-Cancellation_Mechanism/cache/K_L256_side-1_fft2048_nodes25.npz": "ea8d2975a21bedd2517eb4b93b3afdb11c9e556fd14cd37cd30d126e2d05ece7",
+    "03_Error-Cancellation_Mechanism/cache/K_L256_side1_fft2048_nodes25.npz": "5de665a7a57fe55a30ecf54658d6c654a7c45087d2be42de7b78d6ff7fde8b8f"
+  },
+  "kernel_fits": 24,
+  "background_node_fits": 150,
+  "density_cases": 96,
+  "density_groups": 24,
+  "max_dual_gap": 2.220446049250313e-16,
+  "density_order_range": [
+    0.9933212779294057,
+    1.0073613135397468
+  ],
+  "max_coefficient_relative_difference": 1.0037134159368577e-06,
+  "max_gradient": 9.43689570931383e-15
+}

@@ -1,0 +1,23 @@
+{
+  "seed": 20261116,
+  "main_domain": "closed positive sector [0, original uniform bound]; no positive density floor",
+  "stability": {
+    "N": 32,
+    "g0": 1.0,
+    "amplitude": 0.4,
+    "period": 32,
+    "starts": 24,
+    "optimizers": [
+      "L-BFGS-B",
+      "SLSQP"
+    ],
+    "cluster_rms": 1e-05,
+    "stationary_tolerance": 1e-06
+  },
+  "hessian_steps": [
+    0.001,
+    0.0001,
+    1e-05,
+    1e-06
+  ]
+}

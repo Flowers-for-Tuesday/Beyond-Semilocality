@@ -1,0 +1,136 @@
+Building uniform kernel 32 1 730
+New thermodynamic solver and broad-kernel functional tests passed
+SCAN 32 0.1 -1 four_low_modes rows 17 max relative 0.06418248469117167
+SCAN 32 0.1 -1 localized_packet rows 34 max relative 0.057072990716290246
+SCAN 32 0.1 1 four_low_modes rows 51 max relative 0.1077491185328341
+SCAN 32 0.1 1 localized_packet rows 68 max relative 0.20951580765088704
+SCAN 32 0.03 -1 four_low_modes rows 85 max relative 0.05063760089647202
+SCAN 32 0.03 -1 localized_packet rows 102 max relative 0.04415571133514073
+SCAN 32 0.03 1 four_low_modes rows 119 max relative 0.07551847558047438
+SCAN 32 0.03 1 localized_packet rows 136 max relative 0.12347161617087954
+SCAN 32 0.01 -1 four_low_modes rows 153 max relative 0.03456061758557019
+SCAN 32 0.01 -1 localized_packet rows 170 max relative 0.06043329523920444
+SCAN 32 0.01 1 four_low_modes rows 187 max relative 0.048939430140755025
+SCAN 32 0.01 1 localized_packet rows 204 max relative 0.08678669117606459
+SCAN 32 0.003 -1 four_low_modes rows 221 max relative 0.08925109420274212
+SCAN 32 0.003 -1 localized_packet rows 238 max relative 0.09281949466743576
+SCAN 32 0.003 1 four_low_modes rows 255 max relative 0.13040978024623814
+SCAN 32 0.003 1 localized_packet rows 272 max relative 0.17032320690826144
+SCAN 32 0.001 -1 four_low_modes rows 289 max relative 0.15996912598591434
+SCAN 32 0.001 -1 localized_packet rows 306 max relative 0.14766130866746616
+SCAN 32 0.001 1 four_low_modes rows 323 max relative 0.2236483540421654
+SCAN 32 0.001 1 localized_packet rows 340 max relative 0.2614085446824335
+SCAN 32 0.0003 -1 four_low_modes rows 357 max relative 0.19808499005226815
+SCAN 32 0.0003 -1 localized_packet rows 374 max relative 0.18304019183185885
+SCAN 32 0.0003 1 four_low_modes rows 391 max relative 0.2852126391449421
+SCAN 32 0.0003 1 localized_packet rows 408 max relative 0.3254743353687995
+SCAN 32 0.0001 -1 four_low_modes rows 425 max relative 0.21108176096892398
+SCAN 32 0.0001 -1 localized_packet rows 442 max relative 0.19588759547717816
+SCAN 32 0.0001 1 four_low_modes rows 459 max relative 0.30188391494965894
+SCAN 32 0.0001 1 localized_packet rows 476 max relative 0.34242906522443617
+Building uniform kernel 64 1 434
+SCAN 64 0.09817477042468103 -1 four_low_modes rows 488 max relative 0.07801343828363563
+SCAN 64 0.09817477042468103 -1 localized_packet rows 500 max relative 0.07473089446587991
+SCAN 64 0.09817477042468103 1 four_low_modes rows 512 max relative 0.1405052800288116
+SCAN 64 0.09817477042468103 1 localized_packet rows 524 max relative 0.21187654562972666
+Building uniform kernel 128 1 434
+SCAN 128 0.04908738521234052 -1 four_low_modes rows 536 max relative 0.08299738042123433
+SCAN 128 0.04908738521234052 -1 localized_packet rows 548 max relative 0.08230652221260737
+SCAN 128 0.04908738521234052 1 four_low_modes rows 560 max relative 0.12144463253050103
+SCAN 128 0.04908738521234052 1 localized_packet rows 572 max relative 0.1767083590699979
+Building uniform kernel 256 1 434
+SCAN 256 0.02454369260617026 -1 four_low_modes rows 584 max relative 0.08094555074169076
+SCAN 256 0.02454369260617026 -1 localized_packet rows 596 max relative 0.0814962066250239
+SCAN 256 0.02454369260617026 1 four_low_modes rows 608 max relative 0.1085282080375419
+SCAN 256 0.02454369260617026 1 localized_packet rows 620 max relative 0.15019614175587084
+Window analysis {'rows': 620, 'coarse_scan_rows': 620, 'boundary_refinement_rows': 0, 'groups': 40, 'solver_invalid': 1, 'background_side_changes': 0, 'max_exact_quadrature_error': 2.801204514612073e-12, 'windows': 80, 'weak_order_count': 30, 'weak_order_range': [1.9894272811686877, 2.014095169684782], 'resolved_window_boundaries': 77, 'unresolved_window_boundaries': 0}
+BOUNDARY 32 0.0001 -1.0 four_low_modes 0.01 extra 4
+BOUNDARY 32 0.0001 -1.0 four_low_modes 0.05 extra 8
+BOUNDARY 32 0.0001 -1.0 localized_packet 0.01 extra 13
+BOUNDARY 32 0.0001 -1.0 localized_packet 0.05 extra 17
+BOUNDARY 32 0.0001 1.0 four_low_modes 0.01 extra 21
+BOUNDARY 32 0.0001 1.0 four_low_modes 0.05 extra 25
+BOUNDARY 32 0.0001 1.0 localized_packet 0.01 extra 30
+BOUNDARY 32 0.0001 1.0 localized_packet 0.05 extra 34
+BOUNDARY 32 0.0003 -1.0 four_low_modes 0.01 extra 37
+BOUNDARY 32 0.0003 -1.0 four_low_modes 0.05 extra 41
+BOUNDARY 32 0.0003 -1.0 localized_packet 0.01 extra 45
+BOUNDARY 32 0.0003 -1.0 localized_packet 0.05 extra 49
+BOUNDARY 32 0.0003 1.0 four_low_modes 0.01 extra 52
+BOUNDARY 32 0.0003 1.0 four_low_modes 0.05 extra 56
+BOUNDARY 32 0.0003 1.0 localized_packet 0.01 extra 60
+BOUNDARY 32 0.0003 1.0 localized_packet 0.05 extra 64
+BOUNDARY 32 0.001 -1.0 four_low_modes 0.01 extra 67
+BOUNDARY 32 0.001 -1.0 four_low_modes 0.05 extra 71
+BOUNDARY 32 0.001 -1.0 localized_packet 0.01 extra 75
+BOUNDARY 32 0.001 -1.0 localized_packet 0.05 extra 79
+BOUNDARY 32 0.001 1.0 four_low_modes 0.01 extra 82
+BOUNDARY 32 0.001 1.0 four_low_modes 0.05 extra 86
+BOUNDARY 32 0.001 1.0 localized_packet 0.01 extra 88
+BOUNDARY 32 0.001 1.0 localized_packet 0.05 extra 92
+BOUNDARY 32 0.003 -1.0 four_low_modes 0.01 extra 94
+BOUNDARY 32 0.003 -1.0 four_low_modes 0.05 extra 98
+BOUNDARY 32 0.003 -1.0 localized_packet 0.01 extra 100
+BOUNDARY 32 0.003 -1.0 localized_packet 0.05 extra 104
+BOUNDARY 32 0.003 1.0 four_low_modes 0.01 extra 105
+BOUNDARY 32 0.003 1.0 four_low_modes 0.05 extra 109
+BOUNDARY 32 0.003 1.0 localized_packet 0.01 extra 111
+BOUNDARY 32 0.003 1.0 localized_packet 0.05 extra 115
+BOUNDARY 32 0.01 -1.0 four_low_modes 0.01 extra 117
+BOUNDARY 32 0.01 -1.0 localized_packet 0.01 extra 119
+BOUNDARY 32 0.01 -1.0 localized_packet 0.05 extra 123
+BOUNDARY 32 0.01 1.0 four_low_modes 0.01 extra 125
+BOUNDARY 32 0.01 1.0 localized_packet 0.01 extra 128
+BOUNDARY 32 0.01 1.0 localized_packet 0.05 extra 128
+BOUNDARY 32 0.03 -1.0 four_low_modes 0.01 extra 130
+BOUNDARY 32 0.03 -1.0 four_low_modes 0.05 extra 132
+BOUNDARY 32 0.03 -1.0 localized_packet 0.01 extra 135
+BOUNDARY 32 0.03 1.0 four_low_modes 0.01 extra 136
+BOUNDARY 32 0.03 1.0 four_low_modes 0.05 extra 138
+BOUNDARY 32 0.03 1.0 localized_packet 0.01 extra 141
+BOUNDARY 32 0.03 1.0 localized_packet 0.05 extra 143
+BOUNDARY 32 0.1 -1.0 four_low_modes 0.01 extra 146
+BOUNDARY 32 0.1 -1.0 four_low_modes 0.05 extra 148
+BOUNDARY 32 0.1 -1.0 localized_packet 0.01 extra 151
+BOUNDARY 32 0.1 -1.0 localized_packet 0.05 extra 153
+BOUNDARY 32 0.1 1.0 four_low_modes 0.01 extra 156
+BOUNDARY 32 0.1 1.0 four_low_modes 0.05 extra 158
+BOUNDARY 32 0.1 1.0 localized_packet 0.01 extra 161
+BOUNDARY 32 0.1 1.0 localized_packet 0.05 extra 163
+BOUNDARY 64 0.09817477042468103 -1.0 four_low_modes 0.01 extra 166
+BOUNDARY 64 0.09817477042468103 -1.0 four_low_modes 0.05 extra 168
+BOUNDARY 64 0.09817477042468103 -1.0 localized_packet 0.01 extra 171
+BOUNDARY 64 0.09817477042468103 -1.0 localized_packet 0.05 extra 173
+BOUNDARY 64 0.09817477042468103 1.0 four_low_modes 0.01 extra 176
+BOUNDARY 64 0.09817477042468103 1.0 four_low_modes 0.05 extra 178
+BOUNDARY 64 0.09817477042468103 1.0 localized_packet 0.01 extra 180
+BOUNDARY 64 0.09817477042468103 1.0 localized_packet 0.05 extra 181
+BOUNDARY 128 0.04908738521234052 -1.0 four_low_modes 0.01 extra 184
+BOUNDARY 128 0.04908738521234052 -1.0 four_low_modes 0.05 extra 186
+BOUNDARY 128 0.04908738521234052 -1.0 localized_packet 0.01 extra 189
+BOUNDARY 128 0.04908738521234052 -1.0 localized_packet 0.05 extra 191
+BOUNDARY 128 0.04908738521234052 1.0 four_low_modes 0.01 extra 194
+BOUNDARY 128 0.04908738521234052 1.0 four_low_modes 0.05 extra 196
+BOUNDARY 128 0.04908738521234052 1.0 localized_packet 0.01 extra 198
+BOUNDARY 128 0.04908738521234052 1.0 localized_packet 0.05 extra 199
+BOUNDARY 256 0.02454369260617026 -1.0 four_low_modes 0.01 extra 202
+BOUNDARY 256 0.02454369260617026 -1.0 four_low_modes 0.05 extra 204
+BOUNDARY 256 0.02454369260617026 -1.0 localized_packet 0.01 extra 207
+BOUNDARY 256 0.02454369260617026 -1.0 localized_packet 0.05 extra 209
+BOUNDARY 256 0.02454369260617026 1.0 four_low_modes 0.01 extra 212
+BOUNDARY 256 0.02454369260617026 1.0 four_low_modes 0.05 extra 214
+BOUNDARY 256 0.02454369260617026 1.0 localized_packet 0.01 extra 216
+BOUNDARY 256 0.02454369260617026 1.0 localized_packet 0.05 extra 217
+Window analysis {'rows': 837, 'coarse_scan_rows': 620, 'boundary_refinement_rows': 217, 'groups': 40, 'solver_invalid': 1, 'background_side_changes': 0, 'max_exact_quadrature_error': 2.801204514612073e-12, 'windows': 80, 'weak_order_count': 30, 'weak_order_range': [1.9894272811686877, 2.014095169684782], 'resolved_window_boundaries': 77, 'unresolved_window_boundaries': 0}
+Building uniform kernel 32 2 1450
+Building uniform kernel 64 2 864
+Checked boundary points 20
+Building uniform kernel 128 2 864
+Building uniform kernel 256 2 864
+Checked boundary points 40
+Checked boundary points 60
+Checked boundary points 80
+Checked boundary points 100
+Checked boundary points 120
+Checked boundary points 140
+Boundary controls {'boundary_points': 157, 'exact_controls': 48, 'max_refinement_shift_over_signal': 6.368340456957645e-05, 'max_quadrature_shift_over_signal': 6.94023769091389e-13, 'minimum_boundary_Hessian': 0.33430636624649956, 'max_alternative_start_difference': 2.976466547457089e-12, 'classification_disagreements': 0, 'max_uniform_quadrature_difference': np.float64(4.076704525023241e-15)}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "part": 1,
+  "retained_hashes_checked": 4,
+  "csv_rows": {
+    "bounded_range_scaling.csv": 16,
+    "critical_crossover.csv": 280,
+    "critical_kernel.csv": 118
+  },
+  "mode": "existing-evidence verification; no numerical experiment rerun"
+}

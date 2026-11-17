@@ -1,0 +1,15 @@
+{
+  "start_utc": "20261117T053300420540Z",
+  "part": 2,
+  "stages": [
+    "verify"
+  ],
+  "completed": [
+    {
+      "stage": "verify",
+      "seconds": 0.01893030002247542
+    }
+  ],
+  "status": "passed",
+  "finished_utc": "2026-11-17T05:33:00.469051+00:00"
+}

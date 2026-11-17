@@ -1,0 +1,28 @@
+{
+  "start": "20261117T053434",
+  "config_sha256": "795a7360bb83f513d2f96b5d8a86862af09e89558df4740d423227333a94c6f1",
+  "sources": {
+    "tfim\\analysis.py": "099c870cdc1578aa85d23d52df67153655e900e6da28628af9d4904364ef67af",
+    "tfim\\audit.py": "bb0633788d146b10904a9ecdadcad0ab4345305b07aa1c8abe76891fc4bdb5e3",
+    "tfim\\common.py": "6180654f870db80a348c766eca4f90a5f11d86839b4f7e6430a3c201eea7a882",
+    "tfim\\controls.py": "98f1621b5d0b372b42ca63b0081f360a5fb91e030a7b113fe99be4e46b482e04",
+    "tfim\\exact.py": "6177b157a9331633594f8269001d134f14e5c66929b90dda0aaab121b9678828",
+    "tfim\\functional.py": "73dfe95c2c0a11368cdf66e4da555354cabcba5be793c0fd5809d9f06b084522",
+    "tfim\\optimization.py": "65d3d7cf9feaca48c8a8a42d2114e56d5bf576e7b1e90fc8eaefc6ec8bc4d4e8",
+    "tfim\\periodic_jw.py": "a78c693541e93072c19e37dddea9aac357ab208fb0bee326b13c795e6ff262da",
+    "tfim\\refinement.py": "d2faf41a4b7fd030cef0d9c400830b8bc2f890c5c6800e36ba25dedeb0a76ce0",
+    "tfim\\report.py": "bf232d3ffe8d53ee3f3e9f283dd1489ce84219d3523505a8977a7db9c5958d9e",
+    "tfim\\report_layout.py": "b9eae5568b3a988295445c38f00405011ed355789d9d0a0c93583900f6574400",
+    "tfim\\study.py": "82a892ee2f252f9019e0d561fea87c5eca1851a5efde0d70a7c579fc17e56c10",
+    "tfim\\susceptibility.py": "fefee976ef11058f3556209c8d5b426ba97363cbf4e0de7ff0ea320689fc25e9",
+    "tfim\\uniform_ising.py": "cd2a62346871cdea4747cb9158a2108794333f102a1e622b51bdd415aa87f043",
+    "tfim\\workspace.py": "74af55f401e041af16fa052cacdc6eef63baf3ba8cb18ef6410b7a2f77a77393",
+    "tfim\\__init__.py": "798f437f3ba52889648947fe1199e9ecb75b468f92c8e3ab11e95966920c1105"
+  },
+  "stages": [
+    "audit"
+  ],
+  "completed": [],
+  "finished": "2026-11-17T05:34:34.404182+00:00",
+  "audit_after_log_close": true
+}

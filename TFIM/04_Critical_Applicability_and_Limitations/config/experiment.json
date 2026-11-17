@@ -1,0 +1,22 @@
+{
+  "seed": 20261117,
+  "fixed_period": 32,
+  "fixed_period_masses": [0.1,0.03,0.01,0.003,0.001,0.0003,0.0001],
+  "crossover_periods": [64,128,256],
+  "sides": [-1,1],
+  "families": ["four_low_modes","localized_packet"],
+  "peak_amplitudes_over_mass": [0.003,0.01,0.03,0.1,0.2,0.3,0.5,0.8,1.0,1.5,2.0,3.0],
+  "fixed_absolute_amplitudes": [0.0001,0.001,0.003,0.01,0.03],
+  "relative_error_thresholds": [0.01,0.05],
+  "error_definition": "RMS(rho_SARC-rho_exact)/RMS(rho_exact-rho_homogeneous)",
+  "window_definition": "Contiguous verified prefix of increasing amplitude, separately per mass, side, field family and protocol; no extrapolation beyond sampled pass/fail bracket.",
+  "kernel_order": 24,
+  "kernel_log_nodes": 100,
+  "kernel_local_nodes": 25,
+  "exact_epsabs": 2e-11,
+  "exact_epsrel": 2e-11,
+  "solver_tolerance": 2e-12,
+  "critical_background_resolution": 1e-8,
+  "no_new_functional_parameters": true,
+  "scope": "Stationary branch continuously connected to the uniform state, with alternative-start controls near reported window boundaries; not a global-minimum certificate."
+}

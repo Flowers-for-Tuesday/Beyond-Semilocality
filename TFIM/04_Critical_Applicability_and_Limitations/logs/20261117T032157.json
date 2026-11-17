@@ -1,0 +1,20 @@
+{
+  "start": "20261117T032157",
+  "config_sha256": "795a7360bb83f513d2f96b5d8a86862af09e89558df4740d423227333a94c6f1",
+  "sources": {
+    "tfim\\common.py": "e61ed2b5bdfbd0091f69a6dac5fe4d5b1c1261863949b4298b766b0191fac96f",
+    "tfim\\exact.py": "6177b157a9331633594f8269001d134f14e5c66929b90dda0aaab121b9678828",
+    "tfim\\functional.py": "f0cda864618e54fce9817c9af4a1d27160c6f4bbb3462b48e3e7cf0ac0cda1ba",
+    "tfim\\optimization.py": "65d3d7cf9feaca48c8a8a42d2114e56d5bf576e7b1e90fc8eaefc6ec8bc4d4e8",
+    "tfim\\periodic_jw.py": "a78c693541e93072c19e37dddea9aac357ab208fb0bee326b13c795e6ff262da",
+    "tfim\\study.py": "eb8e3b7cb4cec98cf2600c65834d165fe018b8eb2d9df73119843dc723aa5264",
+    "tfim\\susceptibility.py": "97ae515e340a3eb8bfd92c9a39da9e24681e0d9f43436c011caea41db2ea51eb",
+    "tfim\\uniform_ising.py": "cd2a62346871cdea4747cb9158a2108794333f102a1e622b51bdd415aa87f043",
+    "tfim\\__init__.py": "798f437f3ba52889648947fe1199e9ecb75b468f92c8e3ab11e95966920c1105"
+  },
+  "stages": [
+    "tests",
+    "scan"
+  ],
+  "completed": []
+}

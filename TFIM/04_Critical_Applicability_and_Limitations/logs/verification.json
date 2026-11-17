@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "part": 4,
+  "retained_hashes_checked": 9,
+  "csv_rows": {
+    "applicability_windows.csv": 80,
+    "boundary_controls.csv": 157,
+    "boundary_refinement.csv": 217,
+    "conservative_windows.csv": 20,
+    "exact_quadrature_controls.csv": 48,
+    "retained_branch_endpoints.csv": 48,
+    "retained_branch_hessians.csv": 6,
+    "retained_branch_limit.csv": 2,
+    "retained_nonlinear_limit.csv": 8,
+    "retained_nonlinear_raw.csv": 32,
+    "uniform_quadrature_controls.csv": 9,
+    "weak_nonlinear_coefficients.csv": 40,
+    "window_scan.csv": 837
+  },
+  "mode": "existing-evidence verification; no numerical experiment rerun"
+}

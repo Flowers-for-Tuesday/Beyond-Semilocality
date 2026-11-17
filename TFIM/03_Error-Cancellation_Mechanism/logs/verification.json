@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "part": 3,
+  "retained_hashes_checked": 19,
+  "csv_rows": {
+    "linear_predictions.csv": 72,
+    "tail_causality.csv": 54,
+    "weak_field_orders.csv": 432,
+    "weak_field_results.csv": 288
+  },
+  "mode": "existing-evidence verification; no numerical experiment rerun"
+}

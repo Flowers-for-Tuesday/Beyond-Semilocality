@@ -1,0 +1,10 @@
+{
+  "boundary_points": 157,
+  "exact_controls": 48,
+  "max_refinement_shift_over_signal": 6.368340456957645e-05,
+  "max_quadrature_shift_over_signal": 6.94023769091389e-13,
+  "minimum_boundary_Hessian": 0.33430636624649956,
+  "max_alternative_start_difference": 2.976466547457089e-12,
+  "classification_disagreements": 0,
+  "max_uniform_quadrature_difference": 4.076704525023241e-15
+}

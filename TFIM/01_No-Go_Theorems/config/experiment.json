@@ -1,0 +1,12 @@
+{
+  "study": "No-Go Theorems",
+  "mode": "retained_evidence_verification",
+  "recompute_available": false,
+  "evidence": [
+    "critical_kernel.csv",
+    "critical_crossover.csv",
+    "bounded_range_scaling.csv",
+    "two_point_bound.json"
+  ],
+  "scope": "Finite fixed range; no new fit parameters; historical values preserved."
+}

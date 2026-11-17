@@ -1,0 +1,1304 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-17T06:07:00.915657+00:00",
+  "checks": [
+    {
+      "check": "obsolete_project_removed",
+      "passed": true
+    },
+    {
+      "check": "uniform_workspace_1",
+      "passed": true
+    },
+    {
+      "check": "uniform_workspace_2",
+      "passed": true
+    },
+    {
+      "check": "uniform_workspace_3",
+      "passed": true
+    },
+    {
+      "check": "uniform_workspace_4",
+      "passed": true
+    },
+    {
+      "check": "identical_local_entry_points",
+      "passed": true
+    },
+    {
+      "check": "layout_migration_preserved_data",
+      "passed": true
+    },
+    {
+      "check": "retained_weak_field_independently_reproduced",
+      "passed": true
+    },
+    {
+      "check": "retained_weak_field_kernel_inputs",
+      "passed": true
+    },
+    {
+      "check": "raw_branch_counterexample_retained",
+      "passed": true
+    },
+    {
+      "check": "complete_coarse_scan",
+      "passed": true
+    },
+    {
+      "check": "forty_groups",
+      "passed": true
+    },
+    {
+      "check": "unique_field_records",
+      "passed": true
+    },
+    {
+      "check": "adaptive_records_accounted",
+      "passed": true
+    },
+    {
+      "check": "no_superseded_density_profiles",
+      "passed": true
+    },
+    {
+      "check": "no_superseded_exact_caches",
+      "passed": true
+    },
+    {
+      "check": "all_exact_quadratures_converged",
+      "passed": true
+    },
+    {
+      "check": "recomputed_density_errors",
+      "passed": true
+    },
+    {
+      "check": "same_dimensionless_multimode_shape",
+      "passed": true
+    },
+    {
+      "check": "recomputed_response_normalization",
+      "passed": true
+    },
+    {
+      "check": "eighty_tolerance_windows",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0001, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0001, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.0003, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.0003, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.001, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.001, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.003, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.003, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.01, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.01, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.03, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.03, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('fixed_period', 32.0, 0.1, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('fixed_period', 32.0, 0.1, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 64.0, 0.09817477042468103, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 128.0, 0.04908738521234052, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, -1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'four_low_modes')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'four_low_modes')_0.05",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'localized_packet')_0.01",
+      "passed": true
+    },
+    {
+      "check": "window_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "resolved_bracket_('qxi_one', 256.0, 0.02454369260617026, 1.0, 'localized_packet')_0.05",
+      "passed": true
+    },
+    {
+      "check": "twenty_conservative_envelopes",
+      "passed": true
+    },
+    {
+      "check": "all_boundary_points_controlled",
+      "passed": true
+    },
+    {
+      "check": "refinement_preserves_threshold_classification",
+      "passed": true
+    },
+    {
+      "check": "refinement_error_small_against_response",
+      "passed": true,
+      "maximum": 6.368340456957645e-05
+    },
+    {
+      "check": "boundary_local_Hessians_positive",
+      "passed": true,
+      "minimum": 0.33430636624649956
+    },
+    {
+      "check": "boundary_Hessians_symmetric",
+      "passed": true
+    },
+    {
+      "check": "alternative_start_consistency",
+      "passed": true,
+      "maximum": 2.976466547457089e-12
+    },
+    {
+      "check": "tight_exact_quadrature",
+      "passed": true
+    },
+    {
+      "check": "independent_uniform_quadrature",
+      "passed": true
+    },
+    {
+      "check": "new_solver_and_gradient_tests",
+      "passed": true
+    },
+    {
+      "check": "core_evidence_count",
+      "passed": true
+    },
+    {
+      "check": "core_profiles_recomputed",
+      "passed": true
+    },
+    {
+      "check": "retained_structural_checks",
+      "passed": true
+    },
+    {
+      "check": "retained_snapshot_hashes",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L128_refine1",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L128_refine2",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L256_refine1",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L256_refine2",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L32_refine1",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L32_refine2",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L64_refine1",
+      "passed": true
+    },
+    {
+      "check": "finite_kernel_kernel_L64_refine2",
+      "passed": true
+    },
+    {
+      "check": "original_grid_config_unchanged",
+      "passed": true
+    },
+    {
+      "check": "report_balanced_four_part_layout",
+      "passed": true
+    },
+    {
+      "check": "report_input_data_unchanged",
+      "passed": true
+    },
+    {
+      "check": "report_manifest_hash",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S01",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S02",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S03",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S04",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S05",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S06",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S07",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S08",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S09",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S10",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S11",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S12",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S13",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S14",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S15",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S16",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S17",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S18",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S19",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S20",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S21",
+      "passed": true
+    },
+    {
+      "check": "report_table_verified_1.1",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "check": "report_table_verified_1.2",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "check": "report_table_verified_1.3",
+      "passed": true,
+      "rows": 16
+    },
+    {
+      "check": "report_table_verified_2.1",
+      "passed": true,
+      "rows": 12
+    },
+    {
+      "check": "report_table_verified_2.2",
+      "passed": true,
+      "rows": 10
+    },
+    {
+      "check": "report_table_verified_2.3",
+      "passed": true,
+      "rows": 12
+    },
+    {
+      "check": "report_table_verified_2.4",
+      "passed": true,
+      "rows": 24
+    },
+    {
+      "check": "report_table_verified_2.5",
+      "passed": true,
+      "rows": 6
+    },
+    {
+      "check": "report_table_verified_3.1",
+      "passed": true,
+      "rows": 12
+    },
+    {
+      "check": "report_table_verified_3.2",
+      "passed": true,
+      "rows": 24
+    },
+    {
+      "check": "report_table_verified_3.3",
+      "passed": true,
+      "rows": 18
+    },
+    {
+      "check": "report_table_verified_3.4",
+      "passed": true,
+      "rows": 16
+    },
+    {
+      "check": "report_table_verified_3.5",
+      "passed": true,
+      "rows": 4
+    },
+    {
+      "check": "report_table_verified_4.1",
+      "passed": true,
+      "rows": 28
+    },
+    {
+      "check": "report_table_verified_4.2",
+      "passed": true,
+      "rows": 20
+    },
+    {
+      "check": "report_table_verified_4.3",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "check": "report_table_verified_4.4",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "check": "report_table_verified_4.5",
+      "passed": true,
+      "rows": 1
+    },
+    {
+      "check": "report_table_verified_4.6",
+      "passed": true,
+      "rows": 7
+    },
+    {
+      "check": "report_table_verified_4.7",
+      "passed": true,
+      "rows": 4
+    },
+    {
+      "check": "report_table_verified_4.8",
+      "passed": true,
+      "rows": 4
+    },
+    {
+      "check": "report_table_verified_D.1",
+      "passed": true,
+      "rows": 21
+    },
+    {
+      "check": "report_complete_declared_subsets",
+      "passed": true
+    },
+    {
+      "check": "report_refit_tables_complete",
+      "passed": true
+    },
+    {
+      "check": "report_scientific_table_totals",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_1",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_1",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_2",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_2",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_3",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_3",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_4",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_4",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_5",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_5",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_6",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_6",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_7",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_7",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_8",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_8",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_9",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_9",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_10",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_10",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_11",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_11",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_12",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_12",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_13",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_13",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_14",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_14",
+      "passed": true
+    },
+    {
+      "check": "pdf_text_15",
+      "passed": true
+    },
+    {
+      "check": "pdf_bounds_15",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_report/TFIM_核心研究与临界适用窗口_含重拟合对照.pdf",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_report/TFIM_report.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_DIRECTORY_STRUCTURE.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_provenance.json",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_selection.json",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_01_No-Go_Theorems/README.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_02_Minimal_Nonlocal_Correction/README.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_03_Error-Cancellation_Mechanism/README.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_04_Critical_Applicability_and_Limitations/README.md",
+      "passed": true
+    },
+    {
+      "check": "link_README.md_DIRECTORY_STRUCTURE.md",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../01_No-Go_Theorems/figures/01_no_go.png",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../03_Error-Cancellation_Mechanism/figures/07_recorded_error_curves.png",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../03_Error-Cancellation_Mechanism/figures/02_cancellation.png",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../03_Error-Cancellation_Mechanism/figures/08_recorded_tail_causality.png",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../04_Critical_Applicability_and_Limitations/figures/05_verified_windows.png",
+      "passed": true
+    },
+    {
+      "check": "link_report\\TFIM_report.md_../04_Critical_Applicability_and_Limitations/figures/06_nonlinear_coefficient.png",
+      "passed": true
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "characters": 817,
+      "first_line": "TFIM：最小必要非局域修复"
+    },
+    {
+      "page": 2,
+      "characters": 927,
+      "first_line": "1 / No-Go Theorems"
+    },
+    {
+      "page": 3,
+      "characters": 1837,
+      "first_line": "1 / No-Go Theorems"
+    },
+    {
+      "page": 4,
+      "characters": 1245,
+      "first_line": "2 / Minimal Nonlocal Correction"
+    },
+    {
+      "page": 5,
+      "characters": 1230,
+      "first_line": "2 / Minimal Nonlocal Correction"
+    },
+    {
+      "page": 6,
+      "characters": 1861,
+      "first_line": "2 / Minimal Nonlocal Correction"
+    },
+    {
+      "page": 7,
+      "characters": 1272,
+      "first_line": "3 / Error-Cancellation Mechanism"
+    },
+    {
+      "page": 8,
+      "characters": 1721,
+      "first_line": "3 / Error-Cancellation Mechanism"
+    },
+    {
+      "page": 9,
+      "characters": 1371,
+      "first_line": "3 / Error-Cancellation Mechanism"
+    },
+    {
+      "page": 10,
+      "characters": 1628,
+      "first_line": "3 / Error-Cancellation Mechanism"
+    },
+    {
+      "page": 11,
+      "characters": 2302,
+      "first_line": "4 / Critical Applicability and Limitations"
+    },
+    {
+      "page": 12,
+      "characters": 1698,
+      "first_line": "4 / Critical Applicability and Limitations"
+    },
+    {
+      "page": 13,
+      "characters": 1533,
+      "first_line": "4 / Critical Applicability and Limitations"
+    },
+    {
+      "page": 14,
+      "characters": 1288,
+      "first_line": "4 / Critical Applicability and Limitations"
+    },
+    {
+      "page": 15,
+      "characters": 1386,
+      "first_line": "数据索引与复核方法"
+    }
+  ],
+  "new_main_cases": 620,
+  "new_boundary_cases": 217,
+  "new_total_cases": 837,
+  "retained_core_rows": 288,
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "matplotlib": "3.9.1",
+    "pymupdf": "1.25.2"
+  },
+  "scope": "Standalone TFIM directory; historical source hashes recorded without requiring old workspace files."
+}

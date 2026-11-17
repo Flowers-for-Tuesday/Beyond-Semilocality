@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "cases": 288,
+  "maximum_density_error_difference": 5.780325547375247e-17,
+  "methods": [
+    "LDA",
+    "SARC-R8",
+    "SARC"
+  ],
+  "old_workspace_required": false,
+  "temporary_outputs_removed": true
+}

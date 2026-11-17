@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "part": 2,
+  "retained_hashes_checked": 1,
+  "csv_rows": {
+    "finite_range_refit_checks.csv": 6,
+    "finite_range_refit_kernels.csv": 24,
+    "finite_range_refit_nodes.csv": 150,
+    "finite_range_refit_orders.csv": 24,
+    "finite_range_refit_results.csv": 96,
+    "finite_range_refit_summary.csv": 6,
+    "structural_checks.csv": 12,
+    "structural_validation.csv": 10
+  },
+  "mode": "existing-evidence verification; no numerical experiment rerun"
+}

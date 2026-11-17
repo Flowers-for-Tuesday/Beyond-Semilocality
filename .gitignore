@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+TFIM/*/cache/replay/
+TFIM/report/preview_*.png
+TFIM/report/TFIM_核心研究与临界适用窗口.pdf

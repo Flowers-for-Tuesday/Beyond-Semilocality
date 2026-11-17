@@ -1,0 +1,475 @@
+[
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\critical_kernel.csv",
+    "source_sha256": "11854178ee1542a89d2c450e103b581e20b8bf0def0f76ce339d75c58cd70727",
+    "output": "01_No-Go_Theorems/data/critical_kernel.csv",
+    "output_sha256": "e4b8178ce5410bddecd82083f47ea396b9f72b386671aa0ebb876b1ec0ef6952",
+    "source_rows": 118,
+    "selected_rows": 118,
+    "selected_columns": [
+      "g",
+      "q",
+      "K_exact",
+      "K_LDA",
+      "K_SARC",
+      "provenance",
+      "independent_quadrature_difference"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\critical_crossover.csv",
+    "source_sha256": "3d378ada72e4dae5ac7a15f90f042885b3073afc92ea6f89069fd08e790b7453",
+    "output": "01_No-Go_Theorems/data/critical_crossover.csv",
+    "output_sha256": "6bca32b6f9401923f1b604ea8c3d2adbb904a4e7a0d7379bbc043802cd558579",
+    "source_rows": 280,
+    "selected_rows": 280,
+    "selected_columns": [
+      "side",
+      "m",
+      "xi",
+      "s",
+      "q",
+      "chi0",
+      "chi_exact_difference",
+      "exact_scaled",
+      "theory",
+      "exact_residual"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\bounded_range_scaling.csv",
+    "source_sha256": "0423df18cb26b89f6fc763cf1b99e37975aadd9b21a18ec230dfbf6531c6f588",
+    "output": "01_No-Go_Theorems/data/bounded_range_scaling.csv",
+    "output_sha256": "0423df18cb26b89f6fc763cf1b99e37975aadd9b21a18ec230dfbf6531c6f588",
+    "source_rows": 16,
+    "selected_rows": 16,
+    "selected_columns": [
+      "mass",
+      "side",
+      "R",
+      "coefficient_l1",
+      "scaled_prediction_sup",
+      "scaled_error_sup"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\raw\\structural_validation.csv",
+    "source_sha256": "c21c440eb2e361e2f82157b9cc0047ffe3d7dc7812db1850bf648bfc4182ddfc",
+    "output": "02_Minimal_Nonlocal_Correction/data/structural_validation.csv",
+    "output_sha256": "30823645f520c530cea51beda6cba4a3b255e5791c5c6c7907deb016bdcb441f",
+    "source_rows": 28,
+    "selected_rows": 10,
+    "selected_columns": [
+      "test",
+      "side",
+      "method",
+      "error",
+      "energy_error"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\raw\\new_experiment.csv",
+    "source_sha256": "0bc8a9d719348bb150343031d3ffdabeac60de07d012fd42e5831de8ea09a50f",
+    "output": "03_Error-Cancellation_Mechanism/data/weak_field_results.csv",
+    "output_sha256": "455b576bb19e6de1ce0d07d2f04a190bcdbeb3d340a3f85146e81140636e2738",
+    "source_rows": 384,
+    "selected_rows": 288,
+    "selected_columns": [
+      "L",
+      "N",
+      "side",
+      "g0",
+      "mass",
+      "xi",
+      "family",
+      "method",
+      "ratio",
+      "density_rms",
+      "euler_defect_rms",
+      "relaxation_penalty",
+      "penalty_direct_subtraction",
+      "penalty_GL4",
+      "line_integral_difference",
+      "quadratic_relaxation_prediction",
+      "penalty_over_quadratic",
+      "response_identity_residual",
+      "odd_density_error",
+      "even_density_error",
+      "measured_odd_density_coefficient",
+      "predicted_linear_density_coefficient",
+      "predicted_linear_euler_coefficient",
+      "predicted_linear_relaxation_coefficient",
+      "projected_gradient",
+      "uniform_finite_size_bias",
+      "finite_linear_mismatch",
+      "density_numerical_floor",
+      "euler_numerical_floor",
+      "relaxation_numerical_floor",
+      "valid_density",
+      "valid_euler",
+      "valid_relaxation",
+      "primary_window",
+      "boundary_active",
+      "background_valid",
+      "gap",
+      "qp_gap",
+      "lambda"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\raw\\new_error_orders.csv",
+    "source_sha256": "6c06dacd1a3cd636f073fae93f4fb5e42668b4cdb2bf9018aaec0d0eed5fbd47",
+    "output": "03_Error-Cancellation_Mechanism/data/weak_field_orders.csv",
+    "output_sha256": "1d7e091fc425a80449d4f2f965795a18b87721d693051632e0d204d6e12baf7b",
+    "source_rows": 576,
+    "selected_rows": 432,
+    "selected_columns": [
+      "L",
+      "side",
+      "family",
+      "method",
+      "metric",
+      "window",
+      "count",
+      "slope",
+      "coefficient",
+      "max_log_residual"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\raw\\linear_predictions.csv",
+    "source_sha256": "f943a8cf476f0e3ea5a4172bffd42bd87698e89ba3bc13167cd1b89f56f6034b",
+    "output": "03_Error-Cancellation_Mechanism/data/linear_predictions.csv",
+    "output_sha256": "c54a2bab7a40d0c29740ba0939428bf5856dfd204d000201925ce47fc9dfb05c",
+    "source_rows": 96,
+    "selected_rows": 72,
+    "selected_columns": [
+      "L",
+      "side",
+      "family",
+      "method",
+      "linear_density_coefficient",
+      "linear_euler_coefficient",
+      "linear_relaxation_coefficient",
+      "finite_vs_thermo_response",
+      "minimum_Hessian"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\tail_causality.csv",
+    "source_sha256": "ecf582996aafff47bc4e4e6bcc941db4b9da3c5fab4c2b71384c9c5b53d22c02",
+    "output": "03_Error-Cancellation_Mechanism/data/tail_causality.csv",
+    "output_sha256": "ecf582996aafff47bc4e4e6bcc941db4b9da3c5fab4c2b71384c9c5b53d22c02",
+    "source_rows": 54,
+    "selected_rows": 54,
+    "selected_columns": [
+      "L",
+      "side",
+      "R",
+      "xi",
+      "R_over_xi",
+      "Nfft",
+      "complete_on_ring",
+      "onsite_after",
+      "onsite_shift",
+      "zero_mode",
+      "Hessian_full_grid_sup",
+      "Hessian_forced_modes_sup",
+      "response_forced_modes_sup",
+      "predicted_linear_RMS",
+      "scaling_relative_sup",
+      "scaled_absolute_sup",
+      "measured_total_over_lambda",
+      "measured_odd_over_lambda",
+      "absolute_coefficient_difference",
+      "relative_coefficient_difference",
+      "linear_signal_resolved",
+      "nonlinear_to_predicted_linear"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\nonlinear_limit.csv",
+    "source_sha256": "d4fff7834240e96c9fdcf31cf498a0bc2cbcb9c340894c547fed867329c60361",
+    "output": "04_Critical_Applicability_and_Limitations/data/retained_nonlinear_limit.csv",
+    "output_sha256": "d4fff7834240e96c9fdcf31cf498a0bc2cbcb9c340894c547fed867329c60361",
+    "source_rows": 8,
+    "selected_rows": 8,
+    "selected_columns": [
+      "period",
+      "method",
+      "nfit",
+      "basis",
+      "A1",
+      "A1_residual",
+      "A2",
+      "A2_residual",
+      "A2_analytic",
+      "analytic_discrepancy",
+      "gradient_to_second_order"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\branch_limit.csv",
+    "source_sha256": "6685dd6fd078ec176af2d6accb085464d003698e09755cf97785e1bce206876e",
+    "output": "04_Critical_Applicability_and_Limitations/data/retained_branch_limit.csv",
+    "output_sha256": "6685dd6fd078ec176af2d6accb085464d003698e09755cf97785e1bce206876e",
+    "source_rows": 2,
+    "selected_rows": 2,
+    "selected_columns": [
+      "method",
+      "optimizer",
+      "starts",
+      "endpoint_clusters",
+      "stationary_clusters",
+      "stable_interior_clusters",
+      "negative_curvature_stationary_clusters",
+      "stationary_fraction",
+      "lowest_known_basin_fraction",
+      "lowest_known_energy",
+      "energy_spread",
+      "max_projected_gradient",
+      "seconds"
+    ],
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\retained\\two_point_bound.json",
+    "source_sha256": "a54cbf9ceee82896709820a4e07df4d04469360a438df1cd10d008ef3c81fa48",
+    "output": "01_No-Go_Theorems/data/two_point_bound.json",
+    "output_sha256": "a54cbf9ceee82896709820a4e07df4d04469360a438df1cd10d008ef3c81fa48",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\profiles\\new_profiles.json",
+    "source_sha256": "372bfac27985d8b49d7cbcfd57eb4f8ed239aea78a18bd190046f4f90f174364",
+    "output": "03_Error-Cancellation_Mechanism/profiles/weak_field_profiles.json",
+    "output_sha256": "a3a94d8337442d066183a04053bdcb504e3d9b90e167e972189efbf7875dc2d6",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\raw\\frozen_field_shapes.json",
+    "source_sha256": "96c194b4ec4d8a62328532f3b2d3445bacba4ece2b37ffa84d4e2eae5446daae",
+    "output": "03_Error-Cancellation_Mechanism/config/frozen_field_shapes.json",
+    "output_sha256": "96c194b4ec4d8a62328532f3b2d3445bacba4ece2b37ffa84d4e2eae5446daae",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\src\\uniform_ising.py",
+    "source_sha256": "cd2a62346871cdea4747cb9158a2108794333f102a1e622b51bdd415aa87f043",
+    "output": "tfim/uniform_ising.py",
+    "output_sha256": "cd2a62346871cdea4747cb9158a2108794333f102a1e622b51bdd415aa87f043",
+    "note": "susceptibility: measure-zero endpoint guard and periodic-image subdivision in both table and independent scalar quadrature; other vendored solvers unchanged",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\src\\susceptibility.py",
+    "source_sha256": "91b6fbfe9ed823d1c948c64aa01ed8e6e190ebb2e858c19893d3f82b40e262b1",
+    "output": "tfim/susceptibility.py",
+    "output_sha256": "fefee976ef11058f3556209c8d5b426ba97363cbf4e0de7ff0ea320689fc25e9",
+    "note": "susceptibility: measure-zero endpoint guard and periodic-image subdivision in both table and independent scalar quadrature; other vendored solvers unchanged",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase4\\periodic_jw.py",
+    "source_sha256": "a78c693541e93072c19e37dddea9aac357ab208fb0bee326b13c795e6ff262da",
+    "output": "tfim/periodic_jw.py",
+    "output_sha256": "a78c693541e93072c19e37dddea9aac357ab208fb0bee326b13c795e6ff262da",
+    "note": "susceptibility: measure-zero endpoint guard and periodic-image subdivision in both table and independent scalar quadrature; other vendored solvers unchanged",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\config.json",
+    "source_sha256": "2f9eab2e589bd02f1d12e54e8fe589ccbe4c17742bcb79d7bf4e391031b736bc",
+    "output": "03_Error-Cancellation_Mechanism/config/experiment.json",
+    "output_sha256": "1b4830f6c1946e0c688a00fd35bce48ce853e1de632185c57289419905faa2d2",
+    "note": "Retained weak-field protocol; duplicate GGA comparison removed",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\functional.py",
+    "source_sha256": "e2c47b84683daf529b2c0e9de1a116585eb1bf8bb8ccafb4fa70f5eab613a57c",
+    "output": "tfim/weak_field/functional.py",
+    "output_sha256": "c8d7978e0bf5437812d2af9a4e17e105a2627fea375b01a2a825e1e50781173b",
+    "note": "Internal imports and local cache paths adapted; only retained models remain",
+    "source_status": "removed_after_verified_consolidation",
+    "pre_layout_output_sha256": "e5673f56a87e7366def520638710d26f50d62cee933c5e546187b07b7d1780fe",
+    "layout_adaptation": "Only the retained kernel input path changed: 03_Error-Cancellation_Mechanism/reproduction/cache -> 03_Error-Cancellation_Mechanism/cache. Numerical expressions unchanged."
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\optimization.py",
+    "source_sha256": "e2c1755532b9d34841cf92f4935449741c2cd767667187102cc124620b6c36b2",
+    "output": "tfim/weak_field/optimization.py",
+    "output_sha256": "da5fa52deeda815ccaafbc437813d01c69b3b02b501d8ef470646a76839c5371",
+    "note": "Internal imports and local cache paths adapted; only retained models remain",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\experiment.py",
+    "source_sha256": "c4b6598e1d6dc2760cb19a8448911a25d50e4ac46d91cd6aeaf44226a110ea3b",
+    "output": "tfim/weak_field/experiment.py",
+    "output_sha256": "02d507dc880f618379710984e55462c57859e8806b5e1276d06206c42a45065c",
+    "note": "Internal imports and local cache paths adapted; only retained models remain",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L128_side-1_fft1024_nodes25.npz",
+    "source_sha256": "4f78444658d5988d8a99437d07cc57f9eb3bd9a41b1282f2d3a31cd032522f6e",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L128_side-1_fft1024_nodes25.npz",
+    "output_sha256": "4f78444658d5988d8a99437d07cc57f9eb3bd9a41b1282f2d3a31cd032522f6e",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L128_side-1_fft128_nodes25.npz",
+    "source_sha256": "2fa765405ce50fa6edba0ce53ec1fb58146d1dfd2f58886e59a6bba4dc34a106",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L128_side-1_fft128_nodes25.npz",
+    "output_sha256": "2fa765405ce50fa6edba0ce53ec1fb58146d1dfd2f58886e59a6bba4dc34a106",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L128_side1_fft1024_nodes25.npz",
+    "source_sha256": "07009036ae75371712b08cc145d53151fa3325c1678391d68f8ee3891814043e",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L128_side1_fft1024_nodes25.npz",
+    "output_sha256": "07009036ae75371712b08cc145d53151fa3325c1678391d68f8ee3891814043e",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L128_side1_fft128_nodes25.npz",
+    "source_sha256": "2a139de16fb46a5d11a5ba89a00782d0fbc6b929dce204d25c4994f7cd335d46",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L128_side1_fft128_nodes25.npz",
+    "output_sha256": "2a139de16fb46a5d11a5ba89a00782d0fbc6b929dce204d25c4994f7cd335d46",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L256_side-1_fft2048_nodes25.npz",
+    "source_sha256": "ea8d2975a21bedd2517eb4b93b3afdb11c9e556fd14cd37cd30d126e2d05ece7",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L256_side-1_fft2048_nodes25.npz",
+    "output_sha256": "ea8d2975a21bedd2517eb4b93b3afdb11c9e556fd14cd37cd30d126e2d05ece7",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L256_side-1_fft256_nodes25.npz",
+    "source_sha256": "d1da60e7eb543545982b93ce8c2fc2bfde1ed09dcc53544ee20d3e91b34d1e26",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L256_side-1_fft256_nodes25.npz",
+    "output_sha256": "d1da60e7eb543545982b93ce8c2fc2bfde1ed09dcc53544ee20d3e91b34d1e26",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L256_side1_fft2048_nodes25.npz",
+    "source_sha256": "5de665a7a57fe55a30ecf54658d6c654a7c45087d2be42de7b78d6ff7fde8b8f",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L256_side1_fft2048_nodes25.npz",
+    "output_sha256": "5de665a7a57fe55a30ecf54658d6c654a7c45087d2be42de7b78d6ff7fde8b8f",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L256_side1_fft256_nodes25.npz",
+    "source_sha256": "00da84caeae71c709ff75872970d77aa137c360d74124cd2f1d529d9dd8cbde3",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L256_side1_fft256_nodes25.npz",
+    "output_sha256": "00da84caeae71c709ff75872970d77aa137c360d74124cd2f1d529d9dd8cbde3",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L64_side-1_fft512_nodes25.npz",
+    "source_sha256": "5baf22b6db2d6c52bcced62e03ac2cd967187e9b7120fcbafc4b3e54b0327a46",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L64_side-1_fft512_nodes25.npz",
+    "output_sha256": "5baf22b6db2d6c52bcced62e03ac2cd967187e9b7120fcbafc4b3e54b0327a46",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L64_side-1_fft64_nodes25.npz",
+    "source_sha256": "c1c29a77da2c8422fa577c41ec4da8ad385e54feac97b7b10fa4e512285615d4",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L64_side-1_fft64_nodes25.npz",
+    "output_sha256": "c1c29a77da2c8422fa577c41ec4da8ad385e54feac97b7b10fa4e512285615d4",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L64_side1_fft512_nodes25.npz",
+    "source_sha256": "ab6e683034e0bb39c1b35372cd06974d308d9b11c7bec9e50e3bab87591f45f0",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L64_side1_fft512_nodes25.npz",
+    "output_sha256": "ab6e683034e0bb39c1b35372cd06974d308d9b11c7bec9e50e3bab87591f45f0",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\core_study\\results\\cache\\K_L64_side1_fft64_nodes25.npz",
+    "source_sha256": "a5d5b19f59b5dc5826beda808e296db3236b71bd901d1c6dd991478b27ad5ca3",
+    "output": "03_Error-Cancellation_Mechanism/cache/K_L64_side1_fft64_nodes25.npz",
+    "output_sha256": "a5d5b19f59b5dc5826beda808e296db3236b71bd901d1c6dd991478b27ad5ca3",
+    "note": "Uniform-kernel input for exact replay of retained weak-field results",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase2\\results\\data\\E2_small_amplitudes.csv",
+    "source_sha256": "f80ecb3c07195f4cb0bac25ad4fe90ee299509a11acab02744660d6048cbf1ad",
+    "output": "04_Critical_Applicability_and_Limitations/data/retained_nonlinear_raw.csv",
+    "output_sha256": "1b908876f4739e405bb7e84e28280bf38a981cae4b9477036b58d16885ffc628",
+    "note": "Only SARC/Oracle and exact-reference evidence supporting the retained limitation",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase3\\results\\data\\A_endpoints.csv",
+    "source_sha256": "b7cb28e4ab0fd2b3000eebdd3ae309eefd4bff5c1c4a7aff0f59311e8f322bab",
+    "output": "04_Critical_Applicability_and_Limitations/data/retained_branch_endpoints.csv",
+    "output_sha256": "bb83242fdc088570427c05771ef9dae0ba92de8fe13571252699a28c14c138c6",
+    "note": "Only SARC/Oracle and exact-reference evidence supporting the retained limitation",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase3\\results\\data\\A_hessians.csv",
+    "source_sha256": "cd3ab06f6f4dc85b249f47386108ab390fb5d71003fb6d915201c127c7716472",
+    "output": "04_Critical_Applicability_and_Limitations/data/retained_branch_hessians.csv",
+    "output_sha256": "0e6709912b4fb38af8d4149f7c65a6284a429ff342d5f7cc39471b7ceed1e8cb",
+    "note": "Only SARC/Oracle and exact-reference evidence supporting the retained limitation",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase3\\results\\branches\\A_endpoints.json",
+    "source_sha256": "9bed5c69efe35e6871722fc78ce11c50a128bdd14fc985f3ef3de7b78293d5c2",
+    "output": "04_Critical_Applicability_and_Limitations/profiles/retained/retained_branch_profiles.json",
+    "output_sha256": "dca7b8d6321c6efade44dfc6330422b88660162c1030177d4dea83379e3eb029",
+    "note": "All 48 SARC endpoint profiles behind the multiple-branch conclusion",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase3\\config.json",
+    "source_sha256": "7b50e39870349263aef3a3173e2ef2f5cadacd03e4307b390bb71e11e98ada23",
+    "output": "04_Critical_Applicability_and_Limitations/config/retained_branch_setup.json",
+    "output_sha256": "1af5bd2a8becfada0d132e181711151328ee0ceeccad97814d87a68cddefb6b0",
+    "note": "Only settings for the retained multiple-branch counterexample",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase3\\results\\branches\\A_initials.json",
+    "source_sha256": "8565bde11dcec65b10af3c3493160e1e4e2d0b3a84a8da05a734b5f9fa0e94e8",
+    "output": "04_Critical_Applicability_and_Limitations/config/retained_branch_initials.json",
+    "output_sha256": "8565bde11dcec65b10af3c3493160e1e4e2d0b3a84a8da05a734b5f9fa0e94e8",
+    "note": "Initial density vectors for the 48 retained SARC optimization runs",
+    "source_status": "removed_after_verified_consolidation"
+  },
+  {
+    "source": "tfim_critical_dft\\phase2\\results\\data\\E2_profiles.jsonl",
+    "source_sha256": "05b2692a455d7a14361e11fa9ac620d9be8e4745ea0df7efe5c60b59c859d170",
+    "output": "04_Critical_Applicability_and_Limitations/profiles/retained/retained_nonlinear_profiles.jsonl",
+    "output_sha256": "f0757b707eae476da2c8e016b40e1e7577f7afbdcf064319276d3dc556905655",
+    "note": "Only exact/SARC density profiles supporting nonlinear-response limitations",
+    "source_status": "removed_after_verified_consolidation"
+  }
+]

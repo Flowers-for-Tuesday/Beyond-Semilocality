@@ -1,0 +1,11 @@
+{
+  "study": "Minimal Nonlocal Correction",
+  "mode": "retained_evidence_and_shared_structural_tests",
+  "historical_checks": 10,
+  "recomputed_checks": 12,
+  "numerical_config": "../../04_Critical_Applicability_and_Limitations/config/experiment.json",
+  "output": "data/structural_checks.csv",
+  "scope": "Unique Hessian correction; no claim of unique nonlinear extension.",
+  "refit_config": "finite_range_refit.json",
+  "refit_provenance": "Reconstruction from retained inputs; original fifth-round experiment files unavailable"
+}

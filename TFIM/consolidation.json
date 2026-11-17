@@ -1,0 +1,20 @@
+﻿{
+    "status":  "completed",
+    "removed_directory":  "tfim_critical_dft",
+    "removed_directory_files":  1114,
+    "removed_directory_bytes":  279147939,
+    "removed_files":  [
+                          "PROMPT1.md",
+                          "PROMPT2.md",
+                          "PROMPT3.md",
+                          "PROMPT4.md",
+                          "PROMPT5.md",
+                          "TFIM/tfim/curation.py",
+                          "TFIM/tfim/finalize.py",
+                          "TFIM/cleanup_manifest.json"
+                      ],
+    "preserved_project":  "TFIM",
+    "migrated_source_output_pairs":  39,
+    "old_project_backup_retained":  false,
+    "completed_utc":  "2026-11-17T04:12:52.5838314Z"
+}

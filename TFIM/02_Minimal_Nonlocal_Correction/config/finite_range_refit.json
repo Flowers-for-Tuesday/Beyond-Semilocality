@@ -1,0 +1,18 @@
+{
+  "provenance": "Reconstructed finite-range refit control. Original fifth-round code and data were deleted during consolidation; this is not an exact replay of that round.",
+  "periods": [64, 128, 256],
+  "sides": [-1, 1],
+  "ranges": [1, 2, 4, 8],
+  "model": "K_R(q)=K_exact(0)+2 sum_{r=1}^R b_r[1-cos(rq)]",
+  "fit_objective": "minimize maximum absolute relative kernel error on training momenta, independently for each background",
+  "coefficient_bounds": "unbounded; no regularizer",
+  "training": "even momentum indices in [0,pi] of retained FFT grid with Nfft=8L",
+  "validation": "odd momentum indices in [0,pi], excluded from fit",
+  "density_range": 8,
+  "background_nodes": 25,
+  "nonlinear_extension": "Same squared-density coordinate, RMS background and full gradient as SARC; PCHIP interpolated refitted coefficients",
+  "lambda_over_mass": [0.0003, 0.001, 0.003, 0.01],
+  "primary_fit": "first three amplitudes",
+  "exact_reference": "retained JW plus/minus profiles from 24 weak-field groups; no nonuniform density used to fit kernel coefficients",
+  "purpose": "Test whether refitting a fixed-range kernel can eliminate the leading linear density error. Refit parameters belong only to the control, not SARC."
+}

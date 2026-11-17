@@ -1,0 +1,159 @@
+{
+    "status":  "moved_and_hash_verified",
+    "created_utc":  "2026-11-17T05:28:57.7101518Z",
+    "directories":  [
+                        "config",
+                        "data",
+                        "profiles",
+                        "cache",
+                        "figures",
+                        "logs"
+                    ],
+    "moves":  [
+                  {
+                      "old_path":  "config.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/config/experiment.json",
+                      "sha256":  "795a7360bb83f513d2f96b5d8a86862af09e89558df4740d423227333a94c6f1",
+                      "bytes":  1092
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/experiment.json",
+                      "new_path":  "03_Error-Cancellation_Mechanism/config/experiment.json",
+                      "sha256":  "1b4830f6c1946e0c688a00fd35bce48ce853e1de632185c57289419905faa2d2",
+                      "bytes":  1694
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction_check.json",
+                      "new_path":  "03_Error-Cancellation_Mechanism/logs/reproduction_check.json",
+                      "sha256":  "9b00834478da73d530b0c8679bbd88e5f26435b3a063897c00c12ad52df9af79",
+                      "bytes":  241
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/data/weak_field_profiles.json",
+                      "new_path":  "03_Error-Cancellation_Mechanism/profiles/weak_field_profiles.json",
+                      "sha256":  "a3a94d8337442d066183a04053bdcb504e3d9b90e167e972189efbf7875dc2d6",
+                      "bytes":  10430901
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/data/frozen_field_shapes.json",
+                      "new_path":  "03_Error-Cancellation_Mechanism/config/frozen_field_shapes.json",
+                      "sha256":  "96c194b4ec4d8a62328532f3b2d3445bacba4ece2b37ffa84d4e2eae5446daae",
+                      "bytes":  57301
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/structural_checks.csv",
+                      "new_path":  "02_Minimal_Nonlocal_Correction/data/structural_checks.csv",
+                      "sha256":  "b761fbfbf338945de60fca3959a81f3f71168970d37a4a8a905c154dc8c9a8ad",
+                      "bytes":  914
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/frozen_shapes.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/config/frozen_shapes.json",
+                      "sha256":  "0bcbe39c4c0d7a006401cf5f9de81b19af951b277a8b99bb735bfdd60a7c7214",
+                      "bytes":  27444
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/boundary_refinement_protocol.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/config/boundary_refinement_protocol.json",
+                      "sha256":  "c7ae3182a0e4ec92c911353729ba339933bb5bef5740123a1b71e3bf019861de",
+                      "bytes":  273
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/retained_branch_setup.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/config/retained_branch_setup.json",
+                      "sha256":  "1af5bd2a8becfada0d132e181711151328ee0ceeccad97814d87a68cddefb6b0",
+                      "bytes":  439
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/retained_branch_initials.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/config/retained_branch_initials.json",
+                      "sha256":  "8565bde11dcec65b10af3c3493160e1e4e2d0b3a84a8da05a734b5f9fa0e94e8",
+                      "bytes":  19022
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/retained_branch_profiles.json",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/profiles/retained/retained_branch_profiles.json",
+                      "sha256":  "dca7b8d6321c6efade44dfc6330422b88660162c1030177d4dea83379e3eb029",
+                      "bytes":  79514
+                  },
+                  {
+                      "old_path":  "04_Critical_Applicability_and_Limitations/data/retained_nonlinear_profiles.jsonl",
+                      "new_path":  "04_Critical_Applicability_and_Limitations/profiles/retained/retained_nonlinear_profiles.jsonl",
+                      "sha256":  "f0757b707eae476da2c8e016b40e1e7577f7afbdcf064319276d3dc556905655",
+                      "bytes":  351238
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L128_side-1_fft1024_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L128_side-1_fft1024_nodes25.npz",
+                      "sha256":  "4f78444658d5988d8a99437d07cc57f9eb3bd9a41b1282f2d3a31cd032522f6e",
+                      "bytes":  170561
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L128_side-1_fft128_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L128_side-1_fft128_nodes25.npz",
+                      "sha256":  "2fa765405ce50fa6edba0ce53ec1fb58146d1dfd2f58886e59a6bba4dc34a106",
+                      "bytes":  13468
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L128_side1_fft1024_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L128_side1_fft1024_nodes25.npz",
+                      "sha256":  "07009036ae75371712b08cc145d53151fa3325c1678391d68f8ee3891814043e",
+                      "bytes":  172606
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L128_side1_fft128_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L128_side1_fft128_nodes25.npz",
+                      "sha256":  "2a139de16fb46a5d11a5ba89a00782d0fbc6b929dce204d25c4994f7cd335d46",
+                      "bytes":  13573
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L256_side-1_fft2048_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L256_side-1_fft2048_nodes25.npz",
+                      "sha256":  "ea8d2975a21bedd2517eb4b93b3afdb11c9e556fd14cd37cd30d126e2d05ece7",
+                      "bytes":  346121
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L256_side-1_fft256_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L256_side-1_fft256_nodes25.npz",
+                      "sha256":  "d1da60e7eb543545982b93ce8c2fc2bfde1ed09dcc53544ee20d3e91b34d1e26",
+                      "bytes":  34031
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L256_side1_fft2048_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L256_side1_fft2048_nodes25.npz",
+                      "sha256":  "5de665a7a57fe55a30ecf54658d6c654a7c45087d2be42de7b78d6ff7fde8b8f",
+                      "bytes":  351187
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L256_side1_fft256_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L256_side1_fft256_nodes25.npz",
+                      "sha256":  "00da84caeae71c709ff75872970d77aa137c360d74124cd2f1d529d9dd8cbde3",
+                      "bytes":  34355
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L64_side-1_fft512_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L64_side-1_fft512_nodes25.npz",
+                      "sha256":  "5baf22b6db2d6c52bcced62e03ac2cd967187e9b7120fcbafc4b3e54b0327a46",
+                      "bytes":  80107
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L64_side-1_fft64_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L64_side-1_fft64_nodes25.npz",
+                      "sha256":  "c1c29a77da2c8422fa577c41ec4da8ad385e54feac97b7b10fa4e512285615d4",
+                      "bytes":  7359
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L64_side1_fft512_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L64_side1_fft512_nodes25.npz",
+                      "sha256":  "ab6e683034e0bb39c1b35372cd06974d308d9b11c7bec9e50e3bab87591f45f0",
+                      "bytes":  81324
+                  },
+                  {
+                      "old_path":  "03_Error-Cancellation_Mechanism/reproduction/cache/K_L64_side1_fft64_nodes25.npz",
+                      "new_path":  "03_Error-Cancellation_Mechanism/cache/K_L64_side1_fft64_nodes25.npz",
+                      "sha256":  "a5d5b19f59b5dc5826beda808e296db3236b71bd901d1c6dd991478b27ad5ca3",
+                      "bytes":  7382
+                  }
+              ],
+    "content_changed":  false
+}
