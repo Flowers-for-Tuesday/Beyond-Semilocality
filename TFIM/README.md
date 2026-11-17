@@ -1,8 +1,10 @@
 # TFIM：最小必要非局域修复
 
-从两条 No-Go 出发，以一个 SARC 非局域修正补回缺失均匀逆响应核；验证误差消除，并量化临界逼近时残余非线性误差的可用窗口。
+从两条 No-Go 出发，以一个 NRC-LDA (Nonlocal Response-Corrected LDA) 非局域修正补回缺失均匀逆响应核；验证误差消除，并量化临界逼近时残余非线性误差的可用窗口。
 
-[完整 PDF 报告（含重拟合对照）](report/TFIM_核心研究与临界适用窗口_含重拟合对照.pdf) · [可编辑正文](report/TFIM_report.md) · [目录与运行入口](DIRECTORY_STRUCTURE.md) · [来源清单](provenance.json) · [剔除清单](selection.json)
+[目录与运行入口](DIRECTORY_STRUCTURE.md) · [来源清单](provenance.json) · [剔除清单](selection.json)
+
+PDF、可编辑正文和完整数据包保存在本地 `report/`，不提交到远程仓库。在本目录运行 `python run.py --stages report audit` 可生成报告并核验数据。
 
 ## 1 / No-Go Theorems
 
@@ -10,7 +12,7 @@
 
 ## 2 / Minimal Nonlocal Correction
 
-[最小二阶核差、完整变分与有限范围重拟合对照](02_Minimal_Nonlocal_Correction/README.md)。重拟合有限范围系数可降低误差，但仍保留一阶密度误差；SARC 用一项完整核差消除该项。
+[最小二阶核差、完整变分与有限范围重拟合对照](02_Minimal_Nonlocal_Correction/README.md)。重拟合有限范围系数可降低误差，但仍保留一阶密度误差；NRC-LDA 用一项完整核差消除该项。
 
 ## 3 / Error-Cancellation Mechanism
 
@@ -36,4 +38,4 @@ python run.py
 
 `provenance.json` 给出保留证据与来源哈希；`audit.json` 检查数据、公式对应的观测量、窗口分类和报告。PDF 需要 Typst 及 SimSun/Cambria/Cambria Math，审计需要 PyMuPDF；Python 依赖见 `requirements.txt`。
 
-TFIM 是唯一研究项目。原 `tfim_critical_dft` 目录与 PROMPT1–5 探索文档已删除。保留有限范围重新拟合，作为 SARC 最小必要性的对照；该实验由现存核表重建，未恢复第五轮原文件。PLR/H2/L2、与结构验证无关的高阶拟合和重复排名不保留。`provenance.json` 中的历史路径用于溯源；重拟合的输入哈希另记在第二部分运行日志中。
+TFIM 是唯一研究项目。原 `tfim_critical_dft` 目录与 PROMPT1–5 探索文档已删除。保留有限范围重新拟合，作为 NRC-LDA 最小必要性的对照；该实验由现存核表重建，未恢复第五轮原文件。PLR/H2/L2、与结构验证无关的高阶拟合和重复排名不保留。`provenance.json` 中的历史路径用于溯源；重拟合的输入哈希另记在第二部分运行日志中。

@@ -18,7 +18,7 @@ TFIM/
 │   ├── figures/
 │   └── logs/
 ├── tfim/                 共用数值代码、报告和审计代码
-├── report/               四部分合并报告、逐表 CSV 和完整数据包
+├── report/               本地生成的报告、逐表 CSV 和数据包，不提交 Git
 ├── logs/                 跨项目运行日志
 ├── run.py                全流程入口
 ├── provenance.json       历史证据来源与当前文件哈希

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "created_utc": "2026-11-17T06:07:00.915657+00:00",
+  "created_utc": "2026-11-17T08:43:49.855483+00:00",
   "checks": [
     {
       "check": "obsolete_project_removed",
@@ -28,6 +28,14 @@
     },
     {
       "check": "layout_migration_preserved_data",
+      "passed": true
+    },
+    {
+      "check": "root_readme_preserved",
+      "passed": true
+    },
+    {
+      "check": "terminology_numeric_payload_unchanged",
       "passed": true
     },
     {
@@ -1148,14 +1156,6 @@
       "passed": true
     },
     {
-      "check": "link_README.md_report/TFIM_核心研究与临界适用窗口_含重拟合对照.pdf",
-      "passed": true
-    },
-    {
-      "check": "link_README.md_report/TFIM_report.md",
-      "passed": true
-    },
-    {
       "check": "link_README.md_DIRECTORY_STRUCTURE.md",
       "passed": true
     },
@@ -1215,7 +1215,7 @@
   "pages": [
     {
       "page": 1,
-      "characters": 817,
+      "characters": 871,
       "first_line": "TFIM：最小必要非局域修复"
     },
     {
@@ -1230,27 +1230,27 @@
     },
     {
       "page": 4,
-      "characters": 1245,
+      "characters": 1248,
       "first_line": "2 / Minimal Nonlocal Correction"
     },
     {
       "page": 5,
-      "characters": 1230,
+      "characters": 1233,
       "first_line": "2 / Minimal Nonlocal Correction"
     },
     {
       "page": 6,
-      "characters": 1861,
+      "characters": 1878,
       "first_line": "2 / Minimal Nonlocal Correction"
     },
     {
       "page": 7,
-      "characters": 1272,
+      "characters": 1305,
       "first_line": "3 / Error-Cancellation Mechanism"
     },
     {
       "page": 8,
-      "characters": 1721,
+      "characters": 1736,
       "first_line": "3 / Error-Cancellation Mechanism"
     },
     {
@@ -1260,12 +1260,12 @@
     },
     {
       "page": 10,
-      "characters": 1628,
+      "characters": 1634,
       "first_line": "3 / Error-Cancellation Mechanism"
     },
     {
       "page": 11,
-      "characters": 2302,
+      "characters": 2305,
       "first_line": "4 / Critical Applicability and Limitations"
     },
     {
@@ -1280,7 +1280,7 @@
     },
     {
       "page": 14,
-      "characters": 1288,
+      "characters": 1300,
       "first_line": "4 / Critical Applicability and Limitations"
     },
     {

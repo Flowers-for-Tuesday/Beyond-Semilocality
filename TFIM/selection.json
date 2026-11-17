@@ -1,11 +1,11 @@
 {
   "retained": [
     "Two No-Go structural obstructions",
-    "SARC variational/symmetry checks",
+    "NRC-LDA variational/symmetry checks",
     "24-group weak-field cancellation and tail causality",
     "Existing higher-response and branch counterexamples",
     "New critical-distance/amplitude window study",
-    "Finite-range coefficient refit control supporting SARC minimality; reconstructed from retained kernels, not recovered fifth-round files"
+    "Finite-range coefficient refit control supporting NRC-LDA minimality; reconstructed from retained kernels, not recovered fifth-round files"
   ],
   "excluded": [
     "GGA duplicate baseline",

@@ -25,7 +25,7 @@ def measure(L,m,side,shape,amp,f,start=None):
     ok=bool(ex['success'] and sol['gradient']<1e-9 and sol['background_resolved'] and not sol['boundary_active'] and np.isfinite(err))
     row=dict(id=tag,protocol='fixed_period' if L==CONFIG['fixed_period'] else 'qxi_one',L=L,m=m,side=side,g0=g0,family=shape['family'],amplitude_kind=amp['kind'],lambda_value=lam,alpha=amp['alpha'],q_over_m=2*np.pi/(L*m),peak=shape['peak'],signal_rms=signal,error_rms=err,relative_error=err/signal,relative_error_upper=(err+numeric)/max(signal-3*ex['quadrature_error'],1e-30),relative_LDA_error=rms(lda-xe)/signal,exact_nonlinearity=rms(xe-r0-lam*linear)/signal,numerical_error_bound=numeric,gradient=sol['gradient'],background_mass=sol['background_mass'],background_resolved=sol['background_resolved'],same_background_side=bool(side*sol['background_mass']>0),local_field_crosses_critical=bool(min(g)<=1<=max(g)),minimum_local_critical_distance=float(min(abs(g-1))),log_geometric_mean=ex['log_geometric_mean'],quadrature_error=ex['quadrature_error'],quadrature_success=ex['success'],solver_valid=ok,solver_seconds=sol['seconds'],fallback=sol['fallback'])
     row['lambda']=row.pop('lambda_value')
-    save(NEW/'profiles'/f'{tag}_{amp["kind"]}.json',dict(**row,rho_SARC=xa.tolist(),rho_exact=xe.tolist(),rho_LDA=lda.tolist(),linear_response=linear.tolist(),v=v.tolist(),solver=sol))
+    save(NEW/'profiles'/f'{tag}_{amp["kind"]}.json',dict(**row,rho_NRC_LDA=xa.tolist(),rho_exact=xe.tolist(),rho_LDA=lda.tolist(),linear_response=linear.tolist(),v=v.tolist(),solver=sol))
     return row,xa
 
 def run():

@@ -13,6 +13,16 @@ def init():
     (ROOT/'report').mkdir(exist_ok=True)
 def rms(x):return float(np.sqrt(np.mean(np.asarray(x)**2)))
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def matches_recorded_hash(path,expected):
+    """Accept the registered terminology-only transformation of a historical file."""
+    current=sha(path)
+    if current==expected:return True
+    manifest=ROOT/'naming_migration.json'
+    if not manifest.exists():return False
+    changes=json.loads(manifest.read_text(encoding='utf8'))['files']
+    item=changes.get(path.relative_to(ROOT).as_posix(),{})
+    return item.get('before_sha256')==expected and item.get('after_sha256')==current
 def save(path,obj):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj,indent=2,ensure_ascii=False),encoding='utf8')
 def read(path):
     rows=list(csv.DictReader(path.open(encoding='utf-8-sig',newline='')))

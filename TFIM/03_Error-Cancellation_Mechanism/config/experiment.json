@@ -1,10 +1,10 @@
 {
   "seed": 20261117,
-  "primary_functional": "SARC: exact homogeneous LDA + one full inverse-response-difference kernel",
+  "primary_functional": "NRC-LDA: exact homogeneous LDA + one full inverse-response-difference kernel",
   "methods": [
     "LDA",
-    "SARC-R8",
-    "SARC"
+    "NRC-LDA-R8",
+    "NRC-LDA"
   ],
   "periods": [
     64,
@@ -51,19 +51,19 @@
     "period": 64,
     "lambda_over_mass": 0.01,
     "methods": [
-      "SARC-R8",
-      "SARC"
+      "NRC-LDA-R8",
+      "NRC-LDA"
     ]
   },
   "multistart": {
     "period": 128,
     "lambda_over_mass": 0.001,
     "methods": [
-      "SARC-R8",
-      "SARC"
+      "NRC-LDA-R8",
+      "NRC-LDA"
     ]
   },
   "no_new_functional_parameters": true,
-  "new_hypothesis": "SARC Euler defect and density error are second order; within-functional relaxation penalty is fourth order. Removing tail returns first, first, second order when the linear mismatch is resolved.",
+  "new_hypothesis": "NRC-LDA Euler defect and density error are second order; within-functional relaxation penalty is fourth order. Removing tail returns first, first, second order when the linear mismatch is resolved.",
   "energy_caveat": "Relaxation penalty compares two densities in the SAME candidate functional. It is not the candidate-minus-exact ground-state energy error."
 }

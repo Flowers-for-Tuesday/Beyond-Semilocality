@@ -8,7 +8,7 @@
   "peak_amplitudes_over_mass": [0.003,0.01,0.03,0.1,0.2,0.3,0.5,0.8,1.0,1.5,2.0,3.0],
   "fixed_absolute_amplitudes": [0.0001,0.001,0.003,0.01,0.03],
   "relative_error_thresholds": [0.01,0.05],
-  "error_definition": "RMS(rho_SARC-rho_exact)/RMS(rho_exact-rho_homogeneous)",
+  "error_definition": "RMS(rho_NRC_LDA-rho_exact)/RMS(rho_exact-rho_homogeneous)",
   "window_definition": "Contiguous verified prefix of increasing amplitude, separately per mass, side, field family and protocol; no extrapolation beyond sampled pass/fail bracket.",
   "kernel_order": 24,
   "kernel_log_nodes": 100,

@@ -1,11 +1,11 @@
 test,side,method,error,energy_error
-gradient,-1.0,SARC,7.958432690635675e-09,
-Hessian,-1.0,SARC,1.5624879168285588e-10,
-line_integral,-1.0,SARC,5.659318288181599e-18,
+gradient,-1.0,NRC-LDA,7.958432690635675e-09,
+Hessian,-1.0,NRC-LDA,1.5624879168285588e-10,
+line_integral,-1.0,NRC-LDA,5.659318288181599e-18,
 local_sign_symmetry,-1.0,,,0.0
-gradient,1.0,SARC,1.8797930434466537e-09,
-Hessian,1.0,SARC,1.5945600395639303e-10,
-line_integral,1.0,SARC,6.991309361474509e-17,
+gradient,1.0,NRC-LDA,1.8797930434466537e-09,
+Hessian,1.0,NRC-LDA,1.5945600395639303e-10,
+line_integral,1.0,NRC-LDA,6.991309361474509e-17,
 local_sign_symmetry,1.0,,,0.0
 JW_Bloch_new_field,-1.0,,2.827120313889564e-16,0.0
 JW_Bloch_new_field,1.0,,3.399349888776296e-16,2.842170943040401e-14

@@ -1,4 +1,4 @@
-"""Same SARC expression as core_study, with a broad critical background table."""
+"""Same NRC-LDA expression as core_study, with a broad critical background table."""
 import numpy as np
 from scipy.interpolate import CubicHermiteSpline,PchipInterpolator
 from .uniform_ising import UniformFunctional,homogeneous,field_grid
@@ -16,7 +16,7 @@ class Uniform(UniformFunctional):
 
 TABLES={}
 class Functional:
-    def __init__(self,L,g0,kind='SARC',refine=1):
+    def __init__(self,L,g0,kind='NRC-LDA',refine=1):
         init();self.L=L;self.g0=g0;self.kind=kind;key=(L,refine)
         if key not in TABLES:
             uni=Uniform(L,refine);gs=grid(L,refine);rho=homogeneous(gs)[1];path=NEW/'cache'/f'kernel_L{L}_refine{refine}.npz'

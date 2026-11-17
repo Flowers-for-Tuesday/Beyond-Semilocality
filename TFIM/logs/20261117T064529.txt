@@ -1,0 +1,2 @@
+Balanced report built: 15 pages; section counts {1: 2, 2: 3, 3: 4, 4: 4} ; 250 scientific table rows
+Four-part report and focused directory documentation generated

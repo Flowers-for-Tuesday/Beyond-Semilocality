@@ -1,4 +1,4 @@
-g,q,K_exact,K_LDA,K_SARC,provenance,independent_quadrature_difference
+g,q,K_exact,K_LDA,K_NRC_LDA,provenance,independent_quadrature_difference
 1.0,1e-08,0.16110630521150204,0.0,0.16110630521150204,reused exact kernel; candidate equality by construction,
 1.0,1.2185119612433045e-08,0.16275580756431562,0.0,0.16275580756431562,reused exact kernel; candidate equality by construction,
 1.0,1.4847713996930045e-08,0.1644394365948188,0.0,0.1644394365948188,reused exact kernel; candidate equality by construction,

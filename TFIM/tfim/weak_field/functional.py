@@ -1,4 +1,4 @@
-"""SARC, one local baseline, and a pure tail-removal control."""
+"""NRC-LDA, one local baseline, and a pure tail-removal control."""
 import numpy as np
 from scipy.interpolate import CubicHermiteSpline,PchipInterpolator
 from ..uniform_ising import UniformFunctional,homogeneous,field_grid
@@ -23,10 +23,10 @@ def kernel(L,side,nfft,nodes=None):
     return TABLES[key]
 class Functional:
     def __init__(self,L,side,kind,nodes=None):
-        self.n=L;self.side=side;self.kind=kind;self.g0=1+side*2*np.pi/L;self.uniform=UNIFORM;self.nfft=8*L if kind=='SARC-R8' else L;self.interp=kernel(L,side,self.nfft,nodes) if kind.startswith('SARC') else None
+        self.n=L;self.side=side;self.kind=kind;self.g0=1+side*2*np.pi/L;self.uniform=UNIFORM;self.nfft=8*L if kind=='NRC-LDA-R8' else L;self.interp=kernel(L,side,self.nfft,nodes) if kind.startswith('NRC-LDA') else None
     def delta(self,r):
         d=np.asarray(self.interp(r))-float(UNIFORM.inverse.derivative()(r));dp=np.asarray(self.interp(r,nu=1))-float(UNIFORM.inverse.derivative(2)(r));d[0]=dp[0]=0
-        if self.kind=='SARC-R8':
+        if self.kind=='NRC-LDA-R8':
             dist=np.minimum(np.arange(self.nfft),self.nfft-np.arange(self.nfft))
             for a in [d,dp]:
                 real=np.fft.ifft(a).real;real[dist>CONFIG['tail_range']]=0;real[0]-=real.sum();a[:]=np.fft.fft(real).real;a[0]=0

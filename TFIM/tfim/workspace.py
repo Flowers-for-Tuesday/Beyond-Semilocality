@@ -61,7 +61,7 @@ def verify(number):
         assert csv_rows['conservative_windows.csv'] == 20
         for r in rows:
             p = json.loads((base / 'profiles' / f'{r["id"]}_{r["amplitude_kind"]}.json').read_text(encoding='utf8'))
-            assert abs(rms(np.array(p['rho_SARC']) - p['rho_exact']) - r['error_rms']) < 1e-18
+            assert abs(rms(np.array(p['rho_NRC_LDA']) - p['rho_exact']) - r['error_rms']) < 1e-18
     return dict(status='passed',part=number,retained_hashes_checked=len(retained),csv_rows=csv_rows,
                 mode='existing-evidence verification; no numerical experiment rerun')
 
@@ -142,17 +142,6 @@ logs/                    运行日志、数据核验和独立复现记录
 
 
 def directory_notes():
-    descriptions = {
-        'config': '实验条件、固定波形、分支初值及边界协议。主入口读取 experiment.json；第一部分只说明已有证据的核验范围，第二部分注明共用数值配置的位置。',
-        'data': '用于论文的标量结果、误差阶数、窗口边界、结构检查与汇总。完整密度数组放在 profiles/，输入条件放在 config/。',
-        'profiles': '原始或精确/近似密度剖面。第二部分保存有限范围重拟合的 96 条密度结果；第四部分历史高阶与多分支反例放在 retained/。第一部分没有独立密度剖面。',
-        'cache': '数值核表、精确解缓存与临时复算输出。第二部分保存重拟合的背景系数表；第三部分的 12 个 NPZ 核表是复现所需的保留输入，临时复算位于 replay/。第一部分没有专属缓存。',
-        'figures': '本部分的 PNG/PDF 科学图，由 TFIM 根目录的 report 阶段生成。第二部分使用报告中的公式与数据表，没有独立图片。',
-        'logs': '本部分运行日志、verification.json 与独立重算核验记录。第三部分 reproduction_check.json 保存 288 条结果的重算比较；跨项目报告/审计任务日志在 TFIM/logs/。',
-    }
-    for part in PARTS:
-        for name, description in descriptions.items():
-            (ROOT / part / name / 'README.md').write_text('# '+name+'\n\n'+description+'\n\n返回 [本部分说明](../README.md)。\n',encoding='utf8')
     (ROOT / 'DIRECTORY_STRUCTURE.md').write_text('''# TFIM 目录与运行入口
 
 四个子项目采用相同的一级目录和入口。数值算法集中维护，不复制；实验数据按其科学用途归属到各子项目。
@@ -173,7 +162,7 @@ TFIM/
 │   ├── figures/
 │   └── logs/
 ├── tfim/                 共用数值代码、报告和审计代码
-├── report/               四部分合并报告、逐表 CSV 和完整数据包
+├── report/               本地生成的报告、逐表 CSV 和数据包，不提交 Git
 ├── logs/                 跨项目运行日志
 ├── run.py                全流程入口
 ├── provenance.json       历史证据来源与当前文件哈希

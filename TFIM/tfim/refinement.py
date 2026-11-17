@@ -18,7 +18,7 @@ def run():
                 if accepted(r,t):passed.append(r)
                 else:failed=r;break
             if not passed or failed is None or failed['lambda']/passed[-1]['lambda']<=1.12:break
-            last=passed[-1];lam=np.sqrt(last['lambda']*failed['lambda']);p=json.loads((NEW/'profiles'/f'{last["id"]}_{last["amplitude_kind"]}.json').read_text());start=np.array(p['rho_SARC'])+(lam-last['lambda'])*np.array(p['linear_response']);amp=dict(lam=lam,alpha=lam*shape['peak']/w['m'],kind=f'boundary_{int(t*100)}pct');row,_=measure(L,w['m'],int(w['side']),shape,amp,f,start);rows.append(row);extra.append(row)
+            last=passed[-1];lam=np.sqrt(last['lambda']*failed['lambda']);p=json.loads((NEW/'profiles'/f'{last["id"]}_{last["amplitude_kind"]}.json').read_text());start=np.array(p['rho_NRC_LDA'])+(lam-last['lambda'])*np.array(p['linear_response']);amp=dict(lam=lam,alpha=lam*shape['peak']/w['m'],kind=f'boundary_{int(t*100)}pct');row,_=measure(L,w['m'],int(w['side']),shape,amp,f,start);rows.append(row);extra.append(row)
             write(NEW/'data/window_scan.csv',rows);write(NEW/'data/boundary_refinement.csv',extra)
         print('BOUNDARY',L,w['m'],w['side'],w['family'],t,'extra',len(extra),flush=True)
     analyze()

@@ -45,7 +45,7 @@ def run():
     shapes=[r for L in CONFIG['periods'] for r in field_shapes(L)];jsave('frozen_field_shapes',shapes);rows=[];profiles=[];controls=[];response=[]
     for L in CONFIG['periods']:
         for side in [-1,1]:
-            m=2*np.pi/L;g0=1+side*m;r=float(homogeneous(g0)[1]);n=8*L;models={k:Functional(L,side,k) for k in METHODS};ke=models['SARC'].hessian();q=2*np.pi*np.arange(L//2+1)/L;chismall=np.array([finite_response(qq,g0,n) for qq in q]);ix=np.minimum(np.arange(L),L-np.arange(L));chiN=chismall[ix];uniform=solve_periodic(np.full(4,g0),n);bias=abs(np.mean(uniform['rho_block'])-r)
+            m=2*np.pi/L;g0=1+side*m;r=float(homogeneous(g0)[1]);n=8*L;models={k:Functional(L,side,k) for k in METHODS};ke=models['NRC-LDA'].hessian();q=2*np.pi*np.arange(L//2+1)/L;chismall=np.array([finite_response(qq,g0,n) for qq in q]);ix=np.minimum(np.arange(L),L-np.arange(L));chiN=chismall[ix];uniform=solve_periodic(np.full(4,g0),n);bias=abs(np.mean(uniform['rho_block'])-r)
             for shape in [s for s in shapes if s['L']==L]:
                 family=shape['family'];v=np.array(shape['v']);vz=np.fft.fft(v);num_linear=rms(np.fft.ifft((1/ke-chiN)*vz).real)
                 for method,f in models.items():
@@ -59,7 +59,7 @@ def run():
                           response_identity_residual=rms(identity),odd_density_error=rms(odd),even_density_error=rms(even),measured_odd_density_coefficient=rms(odd)/lam,predicted_linear_density_coefficient=rms(de),predicted_linear_euler_coefficient=rms(force),predicted_linear_relaxation_coefficient=float(np.mean(de*np.fft.ifft(k*np.fft.fft(de)).real)/2),
                           projected_gradient=grad,uniform_finite_size_bias=bias,finite_linear_mismatch=num_linear,density_numerical_floor=density_floor,euler_numerical_floor=force_floor,relaxation_numerical_floor=energy_floor,valid_density=bool(rms(delta)>20*max(density_floor,5e-14)),valid_euler=bool(rms(defect)>20*force_floor),valid_relaxation=bool(penalty8>20*energy_floor),primary_window=ratio<=CONFIG['primary_max_lambda_over_mass'],boundary_active=any(s['boundary_active'] for s in sols),background_valid=all(s['background_patch_valid'] for s in sols),gap=exact[0]['gap'],qp_gap=exact[0]['quasiparticle_gap'])
                         row['lambda']=row.pop('lambda_value');rows.append(row);profiles.append(dict(**row,rho_plus=xa.tolist(),rho_minus=xb.tolist(),exact_plus=ea.tolist(),exact_minus=eb.tolist(),euler_defect=defect.tolist(),linear_density_direction=de.tolist(),solvers=sols))
-                        if (L==64 and ratio==.01 or L==128 and ratio==.001) and method in ['SARC-R8','SARC']:
+                        if (L==64 and ratio==.01 or L==128 and ratio==.001) and method in ['NRC-LDA-R8','NRC-LDA']:
                             if L==64:other=optimize(f,g,np.full(L,r),method='SLSQP',polish=False)
                             else:other=optimize(f,g,r+lam*np.random.default_rng(CONFIG['seed']).normal(size=L))
                             controls.append(dict(L=L,side=side,family=family,method=method,ratio=ratio,density_difference=rms(np.array(other['rho'])-xa),primary_gradient=sols[0]['projected_gradient'],other=other))

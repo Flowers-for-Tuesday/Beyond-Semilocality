@@ -5,7 +5,7 @@ import numpy as np
 from scipy.interpolate import PchipInterpolator
 from scipy.optimize import linprog
 from threadpoolctl import threadpool_limits
-from .common import ROOT, PARTS, read, write, save, sha, rms
+from .common import ROOT, PARTS, read, write, save, sha, rms, matches_recorded_hash
 from .weak_field.functional import Functional, UNIFORM
 from .weak_field.optimization import optimize
 
@@ -124,7 +124,7 @@ def run():
                 predicted = rms(np.fft.ifft((1/kfit-1/kexact)*vz).real)
                 group = []
                 for ratio in config['lambda_over_mass']:
-                    index = next(i for i,p in enumerate(reference) if p['L']==L and p['side']==side and p['family']==family and p['method']=='SARC' and p['ratio']==ratio)
+                    index = next(i for i,p in enumerate(reference) if p['L']==L and p['side']==side and p['family']==family and p['method']=='NRC-LDA' and p['ratio']==ratio)
                     exact = reference[index]
                     lam = ratio*mass
                     sols = [optimize(f,f.g0+sign*lam*v,r0+sign*lam*linear) for sign in [1,-1]]
@@ -148,12 +148,12 @@ def run():
                                    predicted_linear_coefficient=predicted,measured_odd_coefficient=group[0]['measured_odd_coefficient'],
                                    coefficient_relative_difference=abs(group[0]['measured_odd_coefficient']/predicted-1)))
             fitted = [r for r in orders if r['L']==L and r['side']==side]
-            sarc = [r['slope'] for r in old_orders if r['L']==L and r['side']==side and r['method']=='SARC' and r['metric']=='density_rms' and r['window']=='primary']
+            nrc_lda = [r['slope'] for r in old_orders if r['L']==L and r['side']==side and r['method']=='NRC-LDA' and r['metric']=='density_rms' and r['window']=='primary']
             summaries.append(dict(L=L,side=side,m=mass,
                                   predicted_C1_max=max(r['predicted_linear_coefficient'] for r in fitted),
                                   measured_C1_max=max(r['measured_odd_coefficient'] for r in fitted),
                                   refit_p_min=min(r['p_density'] for r in fitted),refit_p_max=max(r['p_density'] for r in fitted),
-                                  sarc_p_min=min(sarc),sarc_p_max=max(sarc)))
+                                  nrc_lda_p_min=min(nrc_lda),nrc_lda_p_max=max(nrc_lda)))
             print('REFIT',L,side,'groups',len(orders),'density rows',len(results),flush=True)
     for name,rows in [('kernels',kernels),('nodes',nodes),('results',results),('orders',orders),('summary',summaries),('checks',checks)]:
         write(BASE/'data'/f'finite_range_refit_{name}.csv',rows)
@@ -171,8 +171,8 @@ def run():
 
 def verify():
     log = json.loads((BASE/'logs/finite_range_refit.json').read_text(encoding='utf8'))
-    assert log['status']=='passed' and sha(CONFIG)==log['config_sha256']
-    assert all(sha(ROOT/p)==value for p,value in log['input_sha256'].items())
+    assert log['status']=='passed' and matches_recorded_hash(CONFIG,log['config_sha256'])
+    assert all(matches_recorded_hash(ROOT/p,value) for p,value in log['input_sha256'].items())
     kernels=read(BASE/'data/finite_range_refit_kernels.csv')
     nodes=read(BASE/'data/finite_range_refit_nodes.csv')
     rows=read(BASE/'data/finite_range_refit_results.csv')

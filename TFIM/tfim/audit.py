@@ -2,7 +2,7 @@ import csv,json,re,platform,hashlib,zipfile
 from datetime import datetime,timezone
 import numpy as np
 import fitz,scipy,matplotlib
-from .common import ROOT,NEW,PARTS,CONFIG,read,save,sha,rms,fields
+from .common import ROOT,NEW,PARTS,CONFIG,read,save,sha,rms,fields,matches_recorded_hash
 from .analysis import groupkey,accepted
 
 def run():
@@ -19,7 +19,10 @@ def run():
         check('uniform_workspace_'+str(number),actual==set(WORK_DIRS) and verify(number)['status']=='passed')
     check('identical_local_entry_points',len({sha(ROOT/part/'run.py') for part in PARTS})==1)
     migration=json.loads((ROOT/'layout_migration.json').read_text(encoding='utf8'))
-    check('layout_migration_preserved_data',len(migration['moves'])==24 and all(not (ROOT/r['old_path']).exists() and sha(ROOT/r['new_path'])==r['sha256'] for r in migration['moves']))
+    check('layout_migration_preserved_data',len(migration['moves'])==24 and all(not (ROOT/r['old_path']).exists() and matches_recorded_hash(ROOT/r['new_path'],r['sha256']) for r in migration['moves']))
+    naming=json.loads((ROOT/'naming_migration.json').read_text(encoding='utf8'))
+    check('root_readme_preserved',all(sha(ROOT.parent/p)==h for p,h in naming['readme_sha256'].items()))
+    check('terminology_numeric_payload_unchanged',naming['scientific_data_validation']['passed'])
     replay=json.loads((ROOT/PARTS[2]/'logs/reproduction_check.json').read_text(encoding='utf8'))
     check('retained_weak_field_independently_reproduced',replay['status']=='passed' and replay['cases']==288 and replay['maximum_density_error_difference']<1e-11)
     check('retained_weak_field_kernel_inputs',len(list((ROOT/PARTS[2]/'cache').glob('*nodes25.npz')))==12)
@@ -34,7 +37,7 @@ def run():
     check('all_exact_quadratures_converged',all(r['quadrature_success'] for r in rows))
     errors=[];classifier=[];shape_map={(L,s['family']):np.array(s['v']) for L in [CONFIG['fixed_period']]+CONFIG['crossover_periods'] for s in fields(L)}
     for r in rows:
-        p=json.loads((NEW/'profiles'/f'{r["id"]}_{r["amplitude_kind"]}.json').read_text());x=np.array(p['rho_SARC']);e=np.array(p['rho_exact']);err=rms(x-e);errors.append(abs(err-r['error_rms']));assert len(x)==r['L']
+        p=json.loads((NEW/'profiles'/f'{r["id"]}_{r["amplitude_kind"]}.json').read_text());x=np.array(p['rho_NRC_LDA']);e=np.array(p['rho_exact']);err=rms(x-e);errors.append(abs(err-r['error_rms']));assert len(x)==r['L']
         assert np.array_equal(p['v'],shape_map[(int(r['L']),r['family'])])
         cache=json.loads((NEW/'cache'/f'exact_{r["id"]}.json').read_text());assert np.array_equal(cache['cell'],r['g0']+r['lambda']*np.array(p['v']))
         check_fields=[r['relative_error'],r['signal_rms'],r['error_rms'],r['gradient']]
@@ -64,13 +67,13 @@ def run():
     check('tight_exact_quadrature',all(r['success'] for r in qc) and max(r['shift_over_signal'] for r in qc)<1e-7)
     check('independent_uniform_quadrature',max(r['relative_difference'] for r in uc)<1e-8)
     tests=read(ROOT/PARTS[1]/'data/structural_checks.csv');check('new_solver_and_gradient_tests',len(tests)==12 and max(r['error'] for r in tests)<1e-7)
-    oldrows=read(ROOT/PARTS[2]/'data/weak_field_results.csv');oldprofiles=json.loads((ROOT/PARTS[2]/'profiles/weak_field_profiles.json').read_text());check('core_evidence_count',len(oldrows)==288 and len(oldprofiles)==288 and {r['method'] for r in oldrows}=={'LDA','SARC-R8','SARC'})
+    oldrows=read(ROOT/PARTS[2]/'data/weak_field_results.csv');oldprofiles=json.loads((ROOT/PARTS[2]/'profiles/weak_field_profiles.json').read_text());check('core_evidence_count',len(oldrows)==288 and len(oldprofiles)==288 and {r['method'] for r in oldrows}=={'LDA','NRC-LDA-R8','NRC-LDA'})
     check('core_profiles_recomputed',all(abs(rms(np.array(p['rho_plus'])-p['exact_plus'])-p['density_rms'])<1e-20 for p in oldprofiles))
     check('retained_structural_checks',len(read(ROOT/PARTS[1]/'data/structural_validation.csv'))==10)
     provenance=json.loads((ROOT/'provenance.json').read_text());check('retained_snapshot_hashes',all(sha(ROOT/p['output'])==p['output_sha256'] for p in provenance))
     for p in (NEW/'cache').glob('kernel*.npz'):
         z=np.load(p);check('finite_kernel_'+p.stem,np.all(np.isfinite(z['K'])) and int(z['quadrature_version'])==2)
-    first=json.loads(sorted((NEW/'logs').glob('*.json'))[0].read_text());check('original_grid_config_unchanged',first['config_sha256']==sha(NEW/'config/experiment.json'))
+    first=json.loads(sorted((NEW/'logs').glob('*.json'))[0].read_text());check('original_grid_config_unchanged',matches_recorded_hash(NEW/'config/experiment.json',first['config_sha256']))
     report=ROOT/'report'
     layout=json.loads((report/'report_layout_validation.json').read_text(encoding='utf8'))
     evidence=json.loads((report/'table_provenance.json').read_text(encoding='utf8'))
@@ -89,7 +92,7 @@ def run():
         '2.2':dict(side='side',error='error',energy='energy_error'),
         '2.3':dict(m='m',side='side',error='error',energy='energy_error'),
         '2.4':dict(L='L',side='side',R='R',cut='truncated_train_error',fit='train_error',valid='validation_error'),
-        '2.5':dict(L='L',side='side',pred='predicted_C1_max',measured='measured_C1_max',pmin='refit_p_min',pmax='refit_p_max',smin='sarc_p_min',smax='sarc_p_max'),
+        '2.5':dict(L='L',side='side',pred='predicted_C1_max',measured='measured_C1_max',pmin='refit_p_min',pmax='refit_p_max',smin='nrc_lda_p_min',smax='nrc_lda_p_max'),
         '3.1':dict(method='method',ratio='ratio',density='density_rms',euler='euler_defect_rms',G='relaxation_penalty',gradient='projected_gradient'),
         '3.3':dict(side='side',R='R',scaledR='R_over_xi',pred='predicted_linear_RMS',measured='measured_odd_over_lambda',relative='relative_coefficient_difference',resolved='linear_signal_resolved'),
         '3.5':dict(ratio='ratio',GL8='relaxation_penalty',GL4='penalty_GL4',direct='penalty_direct_subtraction',quadratic_ratio='penalty_over_quadratic'),
@@ -115,7 +118,7 @@ def run():
                     if 'line' in r:assert r['line']==ref['row']
                 elif ref['kind']=='json':
                     p=raw[ref['index']];i=ref['site']
-                    assert r['exact']==p['exact_plus'][i] and r['SARC']==p['rho_plus'][i] and r['Euler']==p['euler_defect'][i]
+                    assert r['exact']==p['exact_plus'][i] and r['NRC_LDA']==p['rho_plus'][i] and r['Euler']==p['euler_defect'][i]
                     assert r['difference']==p['rho_plus'][i]-p['exact_plus'][i]
                 elif ref['kind']=='npz':
                     node,k=ref['index']

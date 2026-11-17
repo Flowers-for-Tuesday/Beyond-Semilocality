@@ -13,7 +13,7 @@ def run():
     rows=read(NEW/'data/window_scan.csv');windows=read(NEW/'data/applicability_windows.csv');boundary=[];excontrols=[];spectral=[]
     chosen=set(w[k] for w in windows for k in ['limit_id','failure_id'] if w[k])
     for r in [r for r in rows if r['id'] in chosen]:
-        L=int(r['L']);g0=r['g0'];p=load_profile(r);v=np.array(p['v']);g=g0+r['lambda']*v;x=np.array(p['rho_SARC']);xe=np.array(p['rho_exact']);f=Functional(L,g0);fine=Functional(L,g0,refine=2);s=solve(fine,g,x);shift=rms(np.array(s['rho'])-x);errfine=rms(np.array(s['rho'])-xe)/r['signal_rms']
+        L=int(r['L']);g0=r['g0'];p=load_profile(r);v=np.array(p['v']);g=g0+r['lambda']*v;x=np.array(p['rho_NRC_LDA']);xe=np.array(p['rho_exact']);f=Functional(L,g0);fine=Functional(L,g0,refine=2);s=solve(fine,g,x);shift=rms(np.array(s['rho'])-x);errfine=rms(np.array(s['rho'])-xe)/r['signal_rms']
         r0=float(homogeneous(g0)[1]);alt=solve(f,g,r0+r['lambda']*np.array(p['linear_response']));difference=rms(np.array(alt['rho'])-x)
         # Full Hessian at the reported branch; central gradient differences, not
         # an energy-difference test that would lose significant digits.

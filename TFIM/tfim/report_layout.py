@@ -9,7 +9,7 @@ from .common import ROOT,NEW,PARTS,read,save,sha
 REPORT=ROOT/'report'
 SECTION={1:'1 / No-Go Theorems',2:'2 / Minimal Nonlocal Correction',3:'3 / Error-Cancellation Mechanism',4:'4 / Critical Applicability and Limitations'}
 FAMILY={'four_low_modes':'F','mixed_scales':'M','localized_packet':'P','twelve_modes':'T'}
-COL={'LDA':'#7a818b','SARC-R8':'#a34f79','SARC':'#087e91'}
+COL={'LDA':'#7a818b','NRC-LDA-R8':'#a34f79','NRC-LDA':'#087e91'}
 def esc(x):
     s=str(x)
     for ch in ['\\','[',']','#','$','<','>','*','_','@']:s=s.replace(ch,'\\'+ch)
@@ -93,7 +93,7 @@ def extra_figures(weak,tail):
     for ext in ['png','pdf']:fig.savefig(folder/f'07_recorded_error_curves.{ext}',dpi=190,bbox_inches='tight')
     plt.close(fig)
     fig,axs=plt.subplots(1,2,figsize=(10.4,2.8),layout='constrained')
-    for method in ['LDA','SARC-R8']:
+    for method in ['LDA','NRC-LDA-R8']:
         rr=[r for r in weak if r['method']==method and r['ratio']==.0003];axs[0].loglog([r['predicted_linear_density_coefficient'] for r in rr],[r['measured_odd_density_coefficient'] for r in rr],'o',color=COL[method],ms=3,label=method)
     axs[0].plot([.0001,1],[.0001,1],'k--',lw=.8);axs[0].set(xlabel='predicted linear coefficient',ylabel='measured odd error / amplitude',title='48 independent nonzero-coefficient tests');axs[0].legend(fontsize=7)
     for side,c in [(-1,'#087e91'),(1,'#a34f79')]:
@@ -112,14 +112,14 @@ def build():
 
     d.page(0,'TFIM：最小必要非局域修复')
     d.p('四部分研究报告 · 数据记录版 · 2026 年 11 月 17 日')
-    d.p('本研究寻找修复临界误差所需的最小非局域项。两条 No-Go 定理说明局域和半局域泛函缺少什么；据此构造 SARC，再用精确解检验误差如何降低，以及修复在多近的临界距离内有效。')
-    d.p('SARC 在均匀 LDA 上增加一项核差修正，补回缺失的均匀逆响应，不引入新的拟合系数：')
-    d.eq(r'F_{\rm SARC}=\sum_i f_{\rm hom}(\rho_i)+\frac{1}{8Nr^2}\sum_{q\ne0}\Delta K(q;r)|u_q|^2,\quad u_i=\rho_i^2,\quad r^2=\langle\rho^2\rangle.','F_("SARC")=sum_i f_("hom")(rho_i)+1/(8N r^2) sum_(q != 0) Delta K(q;r)|u_q|^2,quad u_i=rho_i^2,quad r^2=angle.l rho^2 angle.r.')
-    d.note('主要结果：SARC 将弱场密度误差从一阶降为二阶。接近临界点时，剩余二阶误差的系数仍会增大，因此需要同时控制临界距离和扰动幅度。第四部分给出 1% 和 5% 误差标准下的适用窗口。')
+    d.p('本研究寻找修复临界误差所需的最小非局域项。两条 No-Go 定理说明局域和半局域泛函缺少什么；据此构造 NRC-LDA，再用精确解检验误差如何降低，以及修复在多近的临界距离内有效。')
+    d.p('NRC-LDA 的全称为 Nonlocal Response-Corrected LDA。它在均匀 LDA 上增加一项核差修正，补回缺失的均匀逆响应，不引入新的拟合系数：')
+    d.eq(r'F_{\rm NRC-LDA}=\sum_i f_{\rm hom}(\rho_i)+\frac{1}{8Nr^2}\sum_{q\ne0}\Delta K(q;r)|u_q|^2,\quad u_i=\rho_i^2,\quad r^2=\langle\rho^2\rangle.','F_("NRC-LDA")=sum_i f_("hom")(rho_i)+1/(8N r^2) sum_(q != 0) Delta K(q;r)|u_q|^2,quad u_i=rho_i^2,quad r^2=angle.l rho^2 angle.r.')
+    d.note('主要结果：NRC-LDA 将弱场密度误差从一阶降为二阶。接近临界点时，剩余二阶误差的系数仍会增大，因此需要同时控制临界距离和扰动幅度。第四部分给出 1% 和 5% 误差标准下的适用窗口。')
     d.p('机制验证包含 288 条结果，窗口实验包含 837 条结果。另加入有限范围模型重新拟合的 24 组核对照和 96 条弱场结果，检验调节系数能否替代完整的非局域修复。')
     d.p('报告结构')
     d.p('1 / No-Go Theorems（第 2–3 页）：有限范围修正为何无法恢复临界响应。')
-    d.p('2 / Minimal Nonlocal Correction（第 4–6 页）：构造 SARC，检验变分实现，并与重新拟合的有限范围模型比较。')
+    d.p('2 / Minimal Nonlocal Correction（第 4–6 页）：构造 NRC-LDA，检验变分实现，并与重新拟合的有限范围模型比较。')
     d.p('3 / Error-Cancellation Mechanism（第 7–10 页）：线性误差如何消除，非局域尾部起什么作用。')
     d.p('4 / Critical Applicability and Limitations（第 11–14 页）：剩余误差何时可忽略，修复还有哪些不足。第 15 页为数据索引。')
     d.note('读表约定：F=四低频模，M=混合尺度，P=局域波包，T=十二模；“侧”指 g₀=1±m；“—”表示无数据或无可靠拟合。“行”是原 CSV 行号，表头为第 1 行。完整精度数据见配套 CSV。')
@@ -158,7 +158,7 @@ def build():
         for k in [0,1,2,16,32,64]:
             kernel_records.append(dict(side=side,g=float(z['fields'][12]),rho=float(z['rho'][12]),k=k,K0=float(z['K'][12,0]),K=float(z['K'][12,k]),delta=float(z['K'][12,k]-z['K'][12,0]),_refs=[dict(source=sid,kind='npz',index=[12,k],arrays=['fields','rho','K'])]))
     d.table('2.1','L=128 的均匀核输入',['侧','g₀','ρ₀','k','K(0)','K(qk)','ΔK'],['side','g','rho','k','K0','K','delta'],kernel_records,['i','f','rho','i','f','f','s'],'两侧核表的中心背景节点；固定 k=0,1,2,16,32,64，qk=2πk/128。','ΔK=K(qk)−K(0)。')
-    d.note('SARC 用一项修正匹配完整均匀响应，无需新增拟合系数。二阶核差由响应匹配唯一确定，平方密度与 RMS 背景则给出本文采用的非线性形式。')
+    d.note('NRC-LDA 用一项修正匹配完整均匀响应，无需新增拟合系数。二阶核差由响应匹配唯一确定，平方密度与 RMS 背景则给出本文采用的非线性形式。')
 
     d.page(2,'2.2　梯度实现与数值检查')
     d.p('求解密度时，r 和核 ΔK 都随密度变化，求导需要包含这两部分。记 z=FFT(ρ²/r²−1)，w=IFFT(ΔKz)，S₀=ΣΔK|z|²、S₁=Σ∂rΔK|z|²，完整梯度为：')
@@ -166,7 +166,7 @@ def build():
     tests={'gradient':'梯度差分','Hessian':'Hessian 模态','line_integral':'梯度路径积分','local_sign_symmetry':'逐点符号对称','JW_Bloch_new_field':'稠密 JW/Bloch','thermodynamic_uniform':'均匀热力学极限','finite_ring_to_thermodynamic':'有限环/热力学','full_gradient':'完整梯度差分','uniform_Hessian':'均匀 Hessian'}
     d.table('2.2','10 项结构检查',['行','检查','侧','主要误差','能量误差'],['line','test','side','error','energy'],[rec(r,line=record_no(r),test=tests[r['test']],side=r['side'],error=r.get('error'),energy=r.get('energy_error')) for r in validation],['i','s','i','s','s'],'误差定义沿用原记录。',size=8.8)
     d.table('2.3','12 项核与求解器检查',['行','检查','m','侧','主要误差','能量误差'],['line','test','m','side','error','energy'],[rec(r,line=record_no(r),test=tests[r['test']],m=r['m'],side=r['side'],error=r['error'],energy=r.get('energy_error')) for r in newtests],['i','s','s','i','s','s'],'均匀密度与有限环比较采用密度 RMS；梯度和 Hessian 误差见对应检查。',size=8.7)
-    d.note('梯度差分、均匀 Hessian 和独立 JW 比较均通过检查。接下来用非均匀外场检验 SARC 的误差。')
+    d.note('梯度差分、均匀 Hessian 和独立 JW 比较均通过检查。接下来用非均匀外场检验 NRC-LDA 的误差。')
 
     d.page(2,'2.3　重新拟合能否替代非局域修复')
     refits=b.csv(2,'finite_range_refit_kernels');refit_summary=b.csv(2,'finite_range_refit_summary')
@@ -174,18 +174,18 @@ def build():
     d.eq(r'K_R(q)=K_{exact}(0)+2\sum_{\ell=1}^R b_\ell[1-\cos(\ell q)],\quad\min_{\{b_\ell\}}\max_{q\in train}|K_R(q)/K_{exact}(q)-1|.', 'K_R(q)=K_("exact")(0)+2 sum_(ell=1)^R b_ell[1-cos(ell q)],quad min_(b_ell) max_(q in "train") |K_R(q)/K_("exact")(q)-1|.')
     d.table('2.4','有限范围核：直接截断与重新拟合',['L','侧','R','截断误差 (%)','拟合误差 (%)','验证误差 (%)'],['L','side','R','cut','fit','valid'],[rec(r,L=r['L'],side=r['side'],R=r['R'],cut=r['truncated_train_error'],fit=r['train_error'],valid=r['validation_error']) for r in refits],['i','i','i','p','p','p'],'m=2π/L；误差为最大相对核误差，截断与拟合使用同一组训练动量。',size=8.7)
     d.p('再将重拟合的 R=8 核代入同一泛函形式，复用第三部分的 24 组波形和四个幅度。下表给出每个背景的四组密度误差阶数范围。')
-    d.table('2.5','重拟合 R=8 与 SARC 的密度误差阶数',['L','侧','预测 C₁ 最大值','测量 C₁ 最大值','重拟合 p 最小','重拟合 p 最大','SARC p 最小','SARC p 最大'],['L','side','pred','measured','pmin','pmax','smin','smax'],[rec(r,L=r['L'],side=r['side'],pred=r['predicted_C1_max'],measured=r['measured_C1_max'],pmin=r['refit_p_min'],pmax=r['refit_p_max'],smin=r['sarc_p_min'],smax=r['sarc_p_max']) for r in refit_summary],['i','i','s','s','f','f','f','f'],'C₁ 为一阶密度误差系数；测量取最小幅度，p 用前三个幅度拟合。',size=8.4)
-    d.note('重新拟合降低了核误差，但密度误差仍为一阶（p=0.9933–1.0074）；SARC 为二阶。SARC 的最小必要性体现在用一项完整核差消去领先误差，无需增加拟合系数。')
+    d.table('2.5','重拟合 R=8 与 NRC-LDA 的密度误差阶数',['L','侧','预测 C₁ 最大值','测量 C₁ 最大值','重拟合 p 最小','重拟合 p 最大','NRC-LDA p 最小','NRC-LDA p 最大'],['L','side','pred','measured','pmin','pmax','smin','smax'],[rec(r,L=r['L'],side=r['side'],pred=r['predicted_C1_max'],measured=r['measured_C1_max'],pmin=r['refit_p_min'],pmax=r['refit_p_max'],smin=r['nrc_lda_p_min'],smax=r['nrc_lda_p_max']) for r in refit_summary],['i','i','s','s','f','f','f','f'],'C₁ 为一阶密度误差系数；测量取最小幅度，p 用前三个幅度拟合。',size=8.4)
+    d.note('重新拟合降低了核误差，但密度误差仍为一阶（p=0.9933–1.0074）；NRC-LDA 为二阶。NRC-LDA 的最小必要性体现在用一项完整核差消去领先误差，无需增加拟合系数。')
     d.p('数据来源：第五轮原始重拟合文件已在清理中删除，本节使用保留的精确核与 JW 密度重新计算。')
 
     d.page(3,'3.1　弱场下的误差变化')
-    d.p('实验取 L=64/128/256、m=2π/L、g₀=1±m、ξ=1/m，配合四类波形，共 24 组。外场为 gᵢ=g₀+λvᵢ，v 均值为零、RMS=1，精确 JW 参考环长 N=8L。比较 LDA、SARC-R8 和 SARC，每组取 λ/m=0.0003/0.001/0.003/0.01，用前三点拟合误差阶数。')
+    d.p('实验取 L=64/128/256、m=2π/L、g₀=1±m、ξ=1/m，配合四类波形，共 24 组。外场为 gᵢ=g₀+λvᵢ，v 均值为零、RMS=1，精确 JW 参考环长 N=8L。比较 LDA、NRC-LDA-R8 和 NRC-LDA，每组取 λ/m=0.0003/0.001/0.003/0.01，用前三点拟合误差阶数。')
     d.p('密度误差 δ=ρa−ρe 与精确密度处的 Euler 缺陷 zₐ，其领先项都由近似响应与精确响应之差决定：')
     d.eq(r'\delta=\lambda(\chi_a-\chi_e)v+O(\lambda^2),\quad z_a=\lambda(H_a\chi_e-I)v+O(\lambda^2).','delta=lambda(chi_a-chi_e)v+O(lambda^2),quad z_a=lambda(H_a chi_e-I)v+O(lambda^2).')
     rr=sorted([r for r in weak if r['L']==128 and r['side']==1 and r['family']=='mixed_scales'],key=lambda r:(list(COL).index(r['method']),r['ratio']))
     d.table('3.1','三种方法的幅度序列',['行','方法','λ/m','密度 RMS','Euler RMS','松弛差 G','梯度 ∞范数'],['line','method','ratio','density','euler','G','gradient'],[rec(r,line=record_no(r),method=r['method'],ratio=r['ratio'],density=r['density_rms'],euler=r['euler_defect_rms'],G=r['relaxation_penalty'],gradient=r['projected_gradient']) for r in rr],['i','s','g','s','s','s','s'],'L=128、正侧、混合尺度场 M，共 12 条记录。',size=8.6)
     d.fig(3,'07_recorded_error_curves','表 3.1 的误差随幅度变化。浅色区域为拟合窗口，第四点用于检查趋势。',height=54)
-    d.note('匹配均匀 Hessian 后，密度误差与 Euler 缺陷的一阶项同时消失。表中 SARC 的误差随幅度降低得更快。')
+    d.note('匹配均匀 Hessian 后，密度误差与 Euler 缺陷的一阶项同时消失。表中 NRC-LDA 的误差随幅度降低得更快。')
 
     d.page(3,'3.2　24 组实验的误差阶数')
     d.p('用误差∝λᵖ 表示衰减速度。下表的 pρ、pz、pG 分别对应密度误差、Euler 缺陷和同一泛函内的松弛能量差。全部 24 组均使用前三个幅度点拟合。')
@@ -193,11 +193,11 @@ def build():
     keys=sorted({(r['L'],r['side'],r['family']) for r in orders},key=lambda k:(k[0],k[1],list(FAMILY).index(k[2])))
     for i,key in enumerate(keys):
         selected=[]
-        for method,metric in [('LDA','density_rms'),('SARC-R8','density_rms'),('SARC','density_rms'),('SARC','euler_defect_rms'),('SARC','relaxation_penalty')]:selected.append(next(r for r in orders if (r['L'],r['side'],r['family'])==key and r['method']==method and r['metric']==metric and r['window']=='primary'))
+        for method,metric in [('LDA','density_rms'),('NRC-LDA-R8','density_rms'),('NRC-LDA','density_rms'),('NRC-LDA','euler_defect_rms'),('NRC-LDA','relaxation_penalty')]:selected.append(next(r for r in orders if (r['L'],r['side'],r['family'])==key and r['method']==method and r['metric']==metric and r['window']=='primary'))
         records.append(dict(group=f'G{i+1:02}',L=key[0],side=key[1],family=FAMILY[key[2]],pLDA=selected[0]['slope'],pR8=selected[1]['slope'],pS=selected[2]['slope'],pz=selected[3]['slope'],pG=selected[4]['slope'],_refs=[r['_ref'] for r in selected]))
-    d.table('3.2','24 组误差阶数',['组','L','侧','场','pρ LDA','pρ R8','pρ SARC','pz SARC','pG SARC'],['group','L','side','family','pLDA','pR8','pS','pz','pG'],records,['s','i','i','s','f','f','f','f','f'],'每行汇总 5 项拟合，原记录位置见配套清单。',size=8.45)
-    d.fig(3,'02_cancellation','表 3.2 的总体阶数分布，黑线为中位数。SARC 接近 2、2、4；局域或尾部截断对照接近 1、1、2。',height=45)
-    d.note('24 组结果一致：SARC 的密度与 Euler 误差为二阶，松弛差为四阶；LDA 和 R8 对照仍保留一阶密度误差。')
+    d.table('3.2','24 组误差阶数',['组','L','侧','场','pρ LDA','pρ R8','pρ NRC-LDA','pz NRC-LDA','pG NRC-LDA'],['group','L','side','family','pLDA','pR8','pS','pz','pG'],records,['s','i','i','s','f','f','f','f','f'],'每行汇总 5 项拟合，原记录位置见配套清单。',size=8.45)
+    d.fig(3,'02_cancellation','表 3.2 的总体阶数分布，黑线为中位数。NRC-LDA 接近 2、2、4；局域或尾部截断对照接近 1、1、2。',height=45)
+    d.note('24 组结果一致：NRC-LDA 的密度与 Euler 误差为二阶，松弛差为四阶；LDA 和 R8 对照仍保留一阶密度误差。')
 
     d.page(3,'3.3　截断非局域尾部后的变化')
     d.p('为检验非局域尾部的作用，只截断核在距离 R 以外的部分，并调整同位点项，使零动量修正保持为零。由均匀响应预测一阶误差系数 C₁=‖IFFT[(χR−χexact)vq]‖RMS，再用正负外场的密度误差之差测量该系数。')
@@ -207,11 +207,11 @@ def build():
     d.note('截断到 R=8 后，一阶误差重新出现；最小幅度处，系数预测与测量的最大相对差为 7.56×10⁻⁷。保留非局域尾部是消除这一误差的关键。')
 
     d.page(3,'3.4　密度剖面与松弛能量差')
-    profiles,sid=b.json(ROOT/PARTS[2]/'profiles/weak_field_profiles.json');idx=next(i for i,r in enumerate(profiles) if r['L']==128 and r['side']==1 and r['family']=='mixed_scales' and r['method']=='SARC' and r['ratio']==.003);p=profiles[idx]
-    records=[dict(site=i,exact=p['exact_plus'][i],SARC=p['rho_plus'][i],difference=p['rho_plus'][i]-p['exact_plus'][i],Euler=p['euler_defect'][i],_refs=[dict(source=sid,kind='json',index=idx,site=i,fields=['exact_plus','rho_plus','euler_defect'])]) for i in range(0,128,8)]
-    d.table('3.4','16 个等间距格点的密度',['格点 i','精确密度','SARC 密度','两密度之差','Euler 缺陷'],['site','exact','SARC','difference','Euler'],records,['i','rho','rho','s','s'],'背景同表 3.1；SARC、λ/m=0.003，i=0,8,…,120。','密度保留 10 位小数，差值用原始精度计算；完整剖面见 JSON。',size=9)
+    profiles,sid=b.json(ROOT/PARTS[2]/'profiles/weak_field_profiles.json');idx=next(i for i,r in enumerate(profiles) if r['L']==128 and r['side']==1 and r['family']=='mixed_scales' and r['method']=='NRC-LDA' and r['ratio']==.003);p=profiles[idx]
+    records=[dict(site=i,exact=p['exact_plus'][i],NRC_LDA=p['rho_plus'][i],difference=p['rho_plus'][i]-p['exact_plus'][i],Euler=p['euler_defect'][i],_refs=[dict(source=sid,kind='json',index=idx,site=i,fields=['exact_plus','rho_plus','euler_defect'])]) for i in range(0,128,8)]
+    d.table('3.4','16 个等间距格点的密度',['格点 i','精确密度','NRC-LDA 密度','两密度之差','Euler 缺陷'],['site','exact','NRC_LDA','difference','Euler'],records,['i','rho','rho','s','s'],'背景同表 3.1；NRC-LDA、λ/m=0.003，i=0,8,…,120。','密度保留 10 位小数，差值用原始精度计算；完整剖面见 JSON。',size=9)
     d.p(f'全 128 个格点的密度误差 RMS={p["density_rms"]:.6e}，Euler 缺陷 RMS={p["euler_defect_rms"]:.6e}，投影梯度={p["projected_gradient"]:.6e}。表 3.5 比较同组四个幅度下的能量差计算。')
-    rr=sorted([r for r in weak if r['L']==128 and r['side']==1 and r['family']=='mixed_scales' and r['method']=='SARC'],key=lambda r:r['ratio'])
+    rr=sorted([r for r in weak if r['L']==128 and r['side']==1 and r['family']=='mixed_scales' and r['method']=='NRC-LDA'],key=lambda r:r['ratio'])
     d.table('3.5','松弛能量差的计算对照',['行','λ/m','G：8 点积分','G：4 点积分','直接能量相减','G/二次型'],['line','ratio','GL8','GL4','direct','quadratic_ratio'],[rec(r,line=record_no(r),ratio=r['ratio'],GL8=r['relaxation_penalty'],GL4=r['penalty_GL4'],direct=r['penalty_direct_subtraction'],quadratic_ratio=r['penalty_over_quadratic']) for r in rr],['i','g','s','s','s','f'],'同一组的四个幅度。')
     d.eq(r'G_a=[E_a(\rho_e)-E_a(\rho_a)]/L\simeq\delta^T H_a\delta/(2L).','G_a=[E_a(rho_e)-E_a(rho_a)]/L approx delta^T H_a delta/(2L).')
     replay=json.loads((ROOT/PARTS[2]/'logs/reproduction_check.json').read_text())
@@ -221,7 +221,7 @@ def build():
     d.page(4,'4.1　固定扰动幅度下的临界逼近')
     d.p('消除一阶误差后，剩余误差在接近临界点时有多大？实验沿两条路径考察：固定 L=32，将 m 从 0.1 降至 0.0001；或取 L=64/128/256，保持 q/m=1。外场为 gᵢ=g₀+λvᵢ，v 均值为零、RMS=1，不同 L 使用相同无量纲波形，参考解采用热力学 Bloch/JW 计算。')
     d.p('将密度误差除以外场诱导的密度变化，得到相对误差 ερ；α 表示峰值扰动与临界距离之比。')
-    d.eq(r'\epsilon_\rho=\frac{\|\rho_{SARC}-\rho_e\|_{RMS}}{\|\rho_e-\rho_{hom}(g_0)\|_{RMS}},\quad\alpha=\lambda\|v\|_\infty/m.','epsilon_rho=frac(norm(rho_("SARC")-rho_e)_("RMS"),norm(rho_e-rho_("hom")(g_0))_("RMS")),quad alpha=lambda norm(v)_infinity/m.')
+    d.eq(r'\epsilon_\rho=\frac{\|\rho_{NRC-LDA}-\rho_e\|_{RMS}}{\|\rho_e-\rho_{hom}(g_0)\|_{RMS}},\quad\alpha=\lambda\|v\|_\infty/m.','epsilon_rho=frac(norm(rho_("NRC-LDA")-rho_e)_("RMS"),norm(rho_e-rho_("hom")(g_0))_("RMS")),quad alpha=lambda norm(v)_infinity/m.')
     rr=sorted([r for r in scan if r['protocol']=='fixed_period' and r['amplitude_kind']=='absolute' and r['lambda']==.001],key=lambda r:(-r['m'],r['side'],r['family']))
     d.table('4.1','固定 L=32、λ=0.001 的临界扫描',['行','m','侧','场','诱导密度 RMS','误差 RMS','ερ (%)','梯度 ∞范数'],['line','m','side','family','signal','error','epsilon','gradient'],[rec(r,line=record_no(r),m=r['m'],side=r['side'],family=FAMILY[r['family']],signal=r['signal_rms'],error=r['error_rms'],epsilon=r['relative_error'],gradient=r['gradient']) for r in rr],['i','s','i','s','s','s','p','s'],'两侧、两波形，共 28 行；F=四低频模，P=局域波包。',size=8.4)
     d.note('固定 λ=0.001 时，最大相对误差从 m=0.1 的 0.0855% 增至 m=0.0001 的 6.479%。越接近临界点，剩余非线性误差越需要关注。')
@@ -259,13 +259,13 @@ def build():
     nl=[]
     for period in sorted({r['period'] for r in nonlinear}):
         a=next(r for r in nonlinear if r['period']==period and r['method']=='JW');c=next(r for r in nonlinear if r['period']==period and r['method']=='Oracle');nl.append(dict(period=period,exact1=a['A1'],app1=c['A1'],exact2=a['A2'],app2=c['A2'],_refs=ref(a)+ref(c)))
-    d.table('4.7','四个周期的高阶响应',['周期','精确 A₁','SARC A₁','精确 A₂','SARC A₂'],['period','exact1','app1','exact2','app2'],nl,['i','f','f','f','f'],'N=128、g₀=0.9，单模场；A₁/A₂ 为基频/二次谐波系数，取三个幅度点按 λ² 外推。','旧名称 Oracle 与 SARC 同式。')
+    d.table('4.7','四个周期的高阶响应',['周期','精确 A₁','NRC-LDA A₁','精确 A₂','NRC-LDA A₂'],['period','exact1','app1','exact2','app2'],nl,['i','f','f','f','f'],'N=128、g₀=0.9，单模场；A₁/A₂ 为基频/二次谐波系数，取三个幅度点按 λ² 外推。','旧名称 Oracle 与 NRC-LDA 同式。')
     br=[]
     for optimizer in ['L-BFGS-B','SLSQP']:
         for cluster in [0,1]:
             group=[r for r in branches if r['optimizer']==optimizer and r['cluster']==cluster];r=min(group,key=lambda x:x['energy']);br.append(rec(r,optimizer=optimizer,cluster=cluster,count=len(group),energy=r['energy'],gradient=r['projected_gradient'],hessian=r['hessian_min']))
     d.table('4.8','两种优化器得到的稳定分支',['优化器','簇','簇内点数','总能量','投影梯度','最小 Hessian'],['optimizer','cluster','count','energy','gradient','hessian'],br,['s','i','i','rho','s','f'],'N=32、g₀=1、幅度 0.4；每个优化器取 24 个初值，按解分组后列出各组最低能量。',size=8.5)
-    d.note('SARC 修复了二点响应，但二次谐波仍有偏差，强场下也可出现多个稳定解。窗口实验尚未覆盖 m=0，q/m=1 路径最低到 m≈0.02454。80 个窗口端点中，51 个出现局域 g 跨过 1，但均未达到全链闭隙条件 ∏gᵢ=1。')
+    d.note('NRC-LDA 修复了二点响应，但二次谐波仍有偏差，强场下也可出现多个稳定解。窗口实验尚未覆盖 m=0，q/m=1 路径最低到 m≈0.02454。80 个窗口端点中，51 个出现局域 g 跨过 1，但均未达到全链闭隙条件 ∏gᵢ=1。')
 
     d.page(0,'数据索引与复核方法')
     d.p('正文表格由数据文件自动生成。下列 S 编号对应表下注释；原始行号、数组索引和完整哈希见 table_provenance.json。')
