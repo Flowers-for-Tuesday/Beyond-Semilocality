@@ -1,0 +1,79 @@
+{
+  "reference": {
+    "title": "Testing density functional theory in a quantum Ising chain",
+    "authors": "Jiahao Mao, Haifeng Tang, Wenhui Duan, Zheng Liu",
+    "journal": "Physical Review B 104, 155145 (2021)",
+    "doi": "10.1103/PhysRevB.104.155145",
+    "url": "https://doi.org/10.1103/PhysRevB.104.155145",
+    "open_manuscript": "https://arxiv.org/pdf/2108.03927",
+    "equation": 13
+  },
+  "J_eff": 0.35,
+  "refit": false,
+  "weak_cases": 96,
+  "critical_cases": 28,
+  "order_ranges": {
+    "density_rms": [
+      0.9989792530334228,
+      1.0010017011201506
+    ],
+    "euler_defect_rms": [
+      0.9991523891886616,
+      1.0006380146421832
+    ],
+    "relaxation_penalty": [
+      1.9981350806148892,
+      2.001587014013739
+    ]
+  },
+  "max_gradient": 9.769962616701378e-15,
+  "max_primary_linear_coefficient_difference": 1.8733317763697244e-07,
+  "max_critical_gradient": 9.769962616701378e-15,
+  "max_refinement_shift_over_signal": 3.3077799070626264e-09,
+  "max_restart_density_difference": 5.5629679774731635e-15,
+  "critical_worst_by_mass": [
+    {
+      "m": 0.1,
+      "lda": 0.6784284141283056,
+      "gga": 0.2346736366717109,
+      "nrc_lda": 0.0008545640634512948
+    },
+    {
+      "m": 0.03,
+      "lda": 1.2325451992122116,
+      "gga": 0.5202192060165759,
+      "nrc_lda": 0.0022083499436250133
+    },
+    {
+      "m": 0.01,
+      "lda": 1.8356458273934682,
+      "gga": 0.8098022773473584,
+      "nrc_lda": 0.0037131566349082076
+    },
+    {
+      "m": 0.003,
+      "lda": 2.6933514261713443,
+      "gga": 1.1335188001036016,
+      "nrc_lda": 0.006561056898846567
+    },
+    {
+      "m": 0.001,
+      "lda": 3.294935723500043,
+      "gga": 1.494724490292144,
+      "nrc_lda": 0.012878714888631548
+    },
+    {
+      "m": 0.0003,
+      "lda": 3.2916332709286675,
+      "gga": 1.6846800394486325,
+      "nrc_lda": 0.02587702813939713
+    },
+    {
+      "m": 0.0001,
+      "lda": 3.281340552841672,
+      "gga": 1.6957247929445485,
+      "nrc_lda": 0.06479065828719456
+    }
+  ],
+  "structural_max_error": 4.22451851278538e-10
+}

@@ -39,6 +39,8 @@ TFIM/
 
 第四部分的 `tests` 调用共用结构检查并写入第二部分 `data/structural_checks.csv`。第四部分 `config/experiment.json` 是这些检查与临界扫描的数值配置；第三部分有自己独立的实验配置。
 
+第三、四部分还支持 `python run.py --stages gga verify`，重算文献 GGA 的 12 项结构检查、96 条弱场对照和 28 条临界对照。共享配置与文献出处在第三部分 `config/gga_control.json`，结果按主题归入第二、三、四部分。TFIM 根目录可用 `python run.py --stages gga report audit` 重算并更新报告；GGA 固定文献参数 J_eff=0.35。
+
 TFIM 根目录保持原来的全流程入口 `python run.py`。仅更新报告、来源索引和打包时运行 `python run.py --stages report audit`；跨项目任务日志写入根目录 `logs/`。第三部分原有 `python -m tfim.weak_field` 入口继续可用。
 
 ## 本次位置调整

@@ -17,6 +17,9 @@ def run():
     for number,part in enumerate(PARTS,1):
         actual={p.name for p in (ROOT/part).iterdir() if p.is_dir() and p.name!='__pycache__'}
         check('uniform_workspace_'+str(number),actual==set(WORK_DIRS) and verify(number)['status']=='passed')
+    from .gga_study import verify as verify_gga
+    gga_validation=verify_gga()
+    check('literature_gga_controls',gga_validation['status']=='passed',**gga_validation)
     check('identical_local_entry_points',len({sha(ROOT/part/'run.py') for part in PARTS})==1)
     migration=json.loads((ROOT/'layout_migration.json').read_text(encoding='utf8'))
     check('layout_migration_preserved_data',len(migration['moves'])==24 and all(not (ROOT/r['old_path']).exists() and matches_recorded_hash(ROOT/r['new_path'],r['sha256']) for r in migration['moves']))
@@ -96,7 +99,7 @@ def run():
         '3.1':dict(method='method',ratio='ratio',density='density_rms',euler='euler_defect_rms',G='relaxation_penalty',gradient='projected_gradient'),
         '3.3':dict(side='side',R='R',scaledR='R_over_xi',pred='predicted_linear_RMS',measured='measured_odd_over_lambda',relative='relative_coefficient_difference',resolved='linear_signal_resolved'),
         '3.5':dict(ratio='ratio',GL8='relaxation_penalty',GL4='penalty_GL4',direct='penalty_direct_subtraction',quadratic_ratio='penalty_over_quadratic'),
-        '4.1':dict(m='m',side='side',signal='signal_rms',error='error_rms',epsilon='relative_error',gradient='gradient'),
+        '4.1':dict(m='m',side='side',signal='signal_rms',error='error_rms',epsilon='relative_error'),
         '4.2':dict(L='L',m='m',tolerance='tolerance',alpha='alpha_verified_all',censored='right_censored',**{'pass':'lambda_verified_all','fail':'lambda_first_failure_any'}),
         '4.3':dict(alpha='alpha',epsilon='relative_error',upper='relative_error_upper',gradient='gradient',**{'lambda':'lambda'}),
         '4.4':dict(refined='relative_error_refined',shift='refinement_shift_over_signal',eigen='minimum_Hessian',restart='alternative_start_density_difference'),
@@ -115,7 +118,7 @@ def run():
                 raw=loaded[ref['source']]
                 if ref['kind']=='csv':
                     original=raw[ref['row']-2];assert original==ref['snapshot'],(tid,ref['source'],ref['row']);originals.append(original)
-                    if 'line' in r:assert r['line']==ref['row']
+                    if 'line' in r and len(originals)==1:assert r['line']==ref['row']
                 elif ref['kind']=='json':
                     p=raw[ref['index']];i=ref['site']
                     assert r['exact']==p['exact_plus'][i] and r['NRC_LDA']==p['rho_plus'][i] and r['Euler']==p['euler_defect'][i]
@@ -126,7 +129,8 @@ def run():
                     assert r['delta']==r['K']-r['K0']
             if tid in mappings:assert all(r[k]==originals[0].get(v) for k,v in mappings[tid].items()),tid
             if tid=='1.1':assert r['ratio']==originals[0]['K_exact']*np.log(1/originals[0]['q'])/np.pi
-            if tid=='3.2':assert all(r[k]==o['slope'] for k,o in zip(['pLDA','pR8','pS','pz','pG'],originals)) and all((r['L'],r['side'])==(o['L'],o['side']) and o['count']==3 and o['window']=='primary' for o in originals)
+            if tid=='3.2':assert all(r[k]==o['slope'] for k,o in zip(['pLDA','pGGA','pR8','pS','pz','pG'],originals)) and all((r['L'],r['side'])==(o['L'],o['side']) and o['count']==3 and o['window']=='primary' for o in originals)
+            if tid=='4.1':assert originals[0]['id']==originals[1]['id'] and r['gga']==originals[1]['relative_error'] and r['lda']==originals[1]['lda_relative_error']
             if tid=='4.4':assert r['same']==(originals[0]['classification_1pct_agrees'] and originals[0]['classification_5pct_agrees'])
             if tid=='4.7':assert [r[k] for k in ['exact1','exact2','app1','app2']]==[o[k] for o in originals for k in ['A1','A2']]
             if tid=='4.8':
@@ -135,7 +139,8 @@ def run():
         check('report_table_verified_'+tid,True,rows=len(t['records']))
     check('report_complete_declared_subsets',table_counts['3.2']==24 and table_counts['4.1']==28 and table_counts['4.2']==20 and table_counts['4.5']==1 and table_counts['3.4']==16)
     check('report_refit_tables_complete',table_counts['2.4']==24 and table_counts['2.5']==6)
-    check('report_scientific_table_totals',sum(n for t,n in table_counts.items() if t!='D.1')==layout['scientific_table_rows']==250 and len(table_counts)-1==21)
+    check('report_gga_amplitude_comparison',table_counts['3.1']==16)
+    check('report_scientific_table_totals',sum(n for t,n in table_counts.items() if t!='D.1')==layout['scientific_table_rows']==254 and len(table_counts)-1==21)
     pdf=ROOT/'report/TFIM_核心研究与临界适用窗口_含重拟合对照.pdf';doc=fitz.open(pdf);pages=[]
     for i,page in enumerate(doc):
         text=page.get_text();check('pdf_text_'+str(i+1),'\ufffd'not in text and len(text)>100)
@@ -145,7 +150,8 @@ def run():
         if i<len(doc):doc[i].get_pixmap(matrix=fitz.Matrix(1.2,1.2)).save(ROOT/'report'/f'preview_{i+1}.png')
     for p in [ROOT/'README.md',ROOT/'report/TFIM_report.md']+[ROOT/part/'README.md' for part in PARTS]:
         content=re.sub(r'\\\[.*?\\\]','',p.read_text(encoding='utf8'),flags=re.S)
-        for link in re.findall(r'\]\(([^)]+)\)',content):check('link_'+str(p.relative_to(ROOT))+'_'+link,(p.parent/link).exists())
+        for link in re.findall(r'\]\(([^)]+)\)',content):
+            if not link.startswith(('https://','http://')):check('link_'+str(p.relative_to(ROOT))+'_'+link,(p.parent/link).exists())
     result=dict(status='passed',created_utc=datetime.now(timezone.utc).isoformat(),checks=checks,pages=pages,new_main_cases=620,new_boundary_cases=summary['boundary_refinement_rows'],new_total_cases=len(rows),retained_core_rows=288,versions=dict(python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__,matplotlib=matplotlib.__version__,pymupdf=fitz.VersionBind),scope='Standalone TFIM directory; historical source hashes recorded without requiring old workspace files.')
     save(ROOT/'audit.json',result)
     files=[p for p in ROOT.rglob('*') if p.is_file() and '__pycache__'not in p.parts and p.suffix not in ['.pyc','.zip'] and not p.name.startswith('preview_') and p.name not in ['artifact_manifest.json','package_validation.json','TFIM_核心研究与临界适用窗口.pdf']]

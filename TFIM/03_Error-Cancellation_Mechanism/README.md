@@ -4,8 +4,13 @@
 | --- | --- | --- |
 | E1：24 组多模弱场 | 用独立非均匀 JW 解验证消除线性项 | NRC-LDA 密度误差指数 1.99861–2.00190；Euler 缺陷指数 1.99898–2.00093 |
 | E2：尾部消融 | 区分核结构修复与一般精度提升 | R8 截断恢复一阶误差；其系数由均匀核准确预测 |
+| E3：文献 GGA 对照 | 检验最近邻梯度项是否消除线性误差 | 24 组密度误差指数为 0.99898–1.00100，仍为一阶 |
 
-只保留 LDA、NRC-LDA-R8、NRC-LDA，共 288 条结果与完整正负场剖面；删除重复 GGA 对照。保留 54 行既有尾部因果证据，包括未分辨标记。已有单模、双模重复验证不再单独复制。
+LDA、NRC-LDA-R8、NRC-LDA 的原有 288 条结果与完整正负场剖面保持不变；另加入文献 GGA 的 96 条同场结果。保留 54 行既有尾部因果证据，包括未分辨标记。已有单模、双模重复验证不再单独复制。
+
+GGA 使用 [Mao 等（2021）](https://doi.org/10.1103/PhysRevB.104.155145) 式 (13)，J_eff 固定为 0.35。复用原来的 24 组波形、四个幅度、均匀 LDA 插值与精确 JW 密度；前三点拟合。GGA 的 Euler 缺陷指数为 0.99915–1.00064，松弛差指数为 1.99814–2.00159。最小幅度处，一阶密度误差系数的预测与测量最大相对差为 1.88×10⁻⁷。结论是：最近邻修正可改变误差大小，但没有消除领先线性项。
+
+设置与文献出处见 `config/gga_control.json`；原始数据、72 项拟合和汇总见 `data/gga_weak_field.csv`、`data/gga_orders.csv`、`data/gga_summary.json`；正负场完整剖面在 `profiles/gga_weak_field.json`。本目录执行 `python run.py --stages gga verify` 可重算 GGA 对照，同时更新第二部分结构检查和第四部分 28 条临界对照。来源与输出哈希记录在 `logs/gga_control.json`。
 
 在 TFIM 根目录运行 `python -m tfim.weak_field` 可独立重算全部 288 条弱场结果，并与保留数据核对。配置在 `config/experiment.json`，必要核输入在 `cache/`，完整密度在 `profiles/weak_field_profiles.json`。临时重算输出在核验后清理，只保留 `logs/reproduction_check.json`；不依赖已删除的旧项目。
 

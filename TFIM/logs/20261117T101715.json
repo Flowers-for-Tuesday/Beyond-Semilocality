@@ -1,0 +1,36 @@
+{
+  "start": "20261117T101715",
+  "config_sha256": "3072e4027611f518ebdce4da1cb0d369084ffc17f27c80c9d5a40fb35b65c7f9",
+  "sources": {
+    "tfim\\analysis.py": "099c870cdc1578aa85d23d52df67153655e900e6da28628af9d4904364ef67af",
+    "tfim\\audit.py": "c2fa8402556f1d9075ba81394ac11d281fcf965a07fdf639c8fdb58b4af1cbb1",
+    "tfim\\common.py": "769757aecadb8aaec48b8e45dd8ad2fffa445376e3943564e45cde051bf7cf7d",
+    "tfim\\controls.py": "bd836ec3e3192604ac2beeb57679825392c99e01952e9fbbfd45168c8edb7006",
+    "tfim\\exact.py": "6177b157a9331633594f8269001d134f14e5c66929b90dda0aaab121b9678828",
+    "tfim\\finite_range_refit.py": "588dd4ea37b93daae9f09dc1d1e6706a23adc9464eefde05f022151d557bfbbc",
+    "tfim\\functional.py": "33a56e2ad2facd49af8400bca9bc6539b502f9fbbb5f7e1dcd8a12da1be25e0e",
+    "tfim\\gga.py": "68c2b2c6650adc12d483603d63bb4f8461868ee67e44ce7a700a4fcecc34a21b",
+    "tfim\\gga_study.py": "c1d359db8138c0a6b81fc6079d48e64cf562969dbd23c9e248a209f97bd07af2",
+    "tfim\\optimization.py": "65d3d7cf9feaca48c8a8a42d2114e56d5bf576e7b1e90fc8eaefc6ec8bc4d4e8",
+    "tfim\\periodic_jw.py": "a78c693541e93072c19e37dddea9aac357ab208fb0bee326b13c795e6ff262da",
+    "tfim\\refinement.py": "55b4031e69405b39ac3b4979fdc5134cdfc0f738812f525b1366b4cca459b65e",
+    "tfim\\report.py": "82853047ef588d04b56bf55d0d6e6d728fad50c3ee3cd8e8bbd45116c53e7850",
+    "tfim\\report_layout.py": "fac84a0df65724d2f016b92c5422c5cd0327deae8f6c434fe683f36ae0f73ce5",
+    "tfim\\study.py": "cfade4c79e590ee3bbc27555f0efd849f6904c874138875c12c9c58000addf9f",
+    "tfim\\susceptibility.py": "fefee976ef11058f3556209c8d5b426ba97363cbf4e0de7ff0ea320689fc25e9",
+    "tfim\\uniform_ising.py": "cd2a62346871cdea4747cb9158a2108794333f102a1e622b51bdd415aa87f043",
+    "tfim\\workspace.py": "660e9eb0600d1397ca10b718bb941f070077200177a2af1c33d29dd066e911a2",
+    "tfim\\__init__.py": "798f437f3ba52889648947fe1199e9ecb75b468f92c8e3ab11e95966920c1105"
+  },
+  "stages": [
+    "report"
+  ],
+  "completed": [
+    {
+      "stage": "report",
+      "seconds": 28.008941299980506
+    }
+  ],
+  "finished": "2026-11-17T10:17:43.460038+00:00",
+  "audit_after_log_close": false
+}

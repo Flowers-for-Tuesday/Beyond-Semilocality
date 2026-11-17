@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "weak_cases": 96,
+  "order_fits": 72,
+  "critical_cases": 28,
+  "structural_checks": 12
+}

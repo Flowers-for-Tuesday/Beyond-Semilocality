@@ -9,7 +9,7 @@ from .common import ROOT,NEW,PARTS,read,save,sha
 REPORT=ROOT/'report'
 SECTION={1:'1 / No-Go Theorems',2:'2 / Minimal Nonlocal Correction',3:'3 / Error-Cancellation Mechanism',4:'4 / Critical Applicability and Limitations'}
 FAMILY={'four_low_modes':'F','mixed_scales':'M','localized_packet':'P','twelve_modes':'T'}
-COL={'LDA':'#7a818b','NRC-LDA-R8':'#a34f79','NRC-LDA':'#087e91'}
+COL={'LDA':'#7a818b','GGA':'#c28224','NRC-LDA-R8':'#a34f79','NRC-LDA':'#087e91'}
 def esc(x):
     s=str(x)
     for ch in ['\\','[',']','#','$','<','>','*','_','@']:s=s.replace(ch,'\\'+ch)
@@ -107,6 +107,8 @@ def build():
     scientific=[p for part in PARTS for p in (ROOT/part).rglob('*') if p.is_file() and p.suffix in ['.csv','.json','.jsonl','.npz'] and 'logs' not in p.parts]
     before={str(p.relative_to(ROOT)):sha(p) for p in scientific}
     b=Evidence();critical=b.csv(1,'critical_kernel');cross=b.csv(1,'critical_crossover');bounded=b.csv(1,'bounded_range_scaling');validation=b.csv(2,'structural_validation');newtests=b.csv(2,'structural_checks');weak=b.csv(3,'weak_field_results');orders=b.csv(3,'weak_field_orders');tail=b.csv(3,'tail_causality');scan=b.csv(4,'window_scan');windows=b.csv(4,'applicability_windows');env=b.csv(4,'conservative_windows');bc=b.csv(4,'boundary_controls');coeff=b.csv(4,'weak_nonlinear_coefficients');nonlinear=b.csv(4,'retained_nonlinear_limit');branches=b.csv(4,'retained_branch_endpoints')
+    weak+=b.csv(3,'gga_weak_field');orders+=b.csv(3,'gga_orders');gga_critical=b.csv(4,'gga_critical_path')
+    gga_summary=json.loads((ROOT/PARTS[2]/'data/gga_summary.json').read_text())
     summary=json.loads((NEW/'data/summary.json').read_text());control=json.loads((NEW/'data/control_summary.json').read_text())
     extra_figures(weak,tail);d=Document(b)
 
@@ -117,6 +119,7 @@ def build():
     d.eq(r'F_{\rm NRC-LDA}=\sum_i f_{\rm hom}(\rho_i)+\frac{1}{8Nr^2}\sum_{q\ne0}\Delta K(q;r)|u_q|^2,\quad u_i=\rho_i^2,\quad r^2=\langle\rho^2\rangle.','F_("NRC-LDA")=sum_i f_("hom")(rho_i)+1/(8N r^2) sum_(q != 0) Delta K(q;r)|u_q|^2,quad u_i=rho_i^2,quad r^2=angle.l rho^2 angle.r.')
     d.note('主要结果：NRC-LDA 将弱场密度误差从一阶降为二阶。接近临界点时，剩余二阶误差的系数仍会增大，因此需要同时控制临界距离和扰动幅度。第四部分给出 1% 和 5% 误差标准下的适用窗口。')
     d.p('机制验证包含 288 条结果，窗口实验包含 837 条结果。另加入有限范围模型重新拟合的 24 组核对照和 96 条弱场结果，检验调节系数能否替代完整的非局域修复。')
+    d.p('文献 GGA 对照采用 Mao 等（2021）的原式和固定参数，新增 96 条弱场结果、28 条临界扫描，用于区分误差减小与领先误差消除。')
     d.p('报告结构')
     d.p('1 / No-Go Theorems（第 2–3 页）：有限范围修正为何无法恢复临界响应。')
     d.p('2 / Minimal Nonlocal Correction（第 4–6 页）：构造 NRC-LDA，检验变分实现，并与重新拟合的有限范围模型比较。')
@@ -159,6 +162,9 @@ def build():
             kernel_records.append(dict(side=side,g=float(z['fields'][12]),rho=float(z['rho'][12]),k=k,K0=float(z['K'][12,0]),K=float(z['K'][12,k]),delta=float(z['K'][12,k]-z['K'][12,0]),_refs=[dict(source=sid,kind='npz',index=[12,k],arrays=['fields','rho','K'])]))
     d.table('2.1','L=128 的均匀核输入',['侧','g₀','ρ₀','k','K(0)','K(qk)','ΔK'],['side','g','rho','k','K0','K','delta'],kernel_records,['i','f','rho','i','f','f','s'],'两侧核表的中心背景节点；固定 k=0,1,2,16,32,64，qk=2πk/128。','ΔK=K(qk)−K(0)。')
     d.note('NRC-LDA 用一项修正匹配完整均匀响应，无需新增拟合系数。二阶核差由响应匹配唯一确定，平方密度与 RMS 背景则给出本文采用的非线性形式。')
+    d.p('文献 GGA：Mao 等，Testing density functional theory in a quantum Ising chain，Phys. Rev. B 104, 155145 (2021)，式 (13)，DOI: 10.1103/PhysRevB.104.155145。按原文固定 J_eff=0.35：')
+    d.eq(r'F_{\rm GGA}=F_{\rm LDA}+0.35\sum_i(\rho_i^2-\rho_{i+1}^2)^2,\quad\Delta K_{\rm GGA}=32(0.35)r^2\sin^2(q/2).','F_("GGA")=F_("LDA")+0.35 sum_i (rho_i^2-rho_(i+1)^2)^2,quad Delta K_("GGA")=32(0.35)r^2 sin^2(q/2).')
+    d.p('其均匀 Hessian 为最近邻修正，小 q 时仍按 q² 衰减，属于 No-Go 所约束的有限范围形式。以下直接比较这一 GGA 与 NRC-LDA，不重新拟合参数。')
 
     d.page(2,'2.2　梯度实现与数值检查')
     d.p('求解密度时，r 和核 ΔK 都随密度变化，求导需要包含这两部分。记 z=FFT(ρ²/r²−1)，w=IFFT(ΔKz)，S₀=ΣΔK|z|²、S₁=Σ∂rΔK|z|²，完整梯度为：')
@@ -166,7 +172,7 @@ def build():
     tests={'gradient':'梯度差分','Hessian':'Hessian 模态','line_integral':'梯度路径积分','local_sign_symmetry':'逐点符号对称','JW_Bloch_new_field':'稠密 JW/Bloch','thermodynamic_uniform':'均匀热力学极限','finite_ring_to_thermodynamic':'有限环/热力学','full_gradient':'完整梯度差分','uniform_Hessian':'均匀 Hessian'}
     d.table('2.2','10 项结构检查',['行','检查','侧','主要误差','能量误差'],['line','test','side','error','energy'],[rec(r,line=record_no(r),test=tests[r['test']],side=r['side'],error=r.get('error'),energy=r.get('energy_error')) for r in validation],['i','s','i','s','s'],'误差定义沿用原记录。',size=8.8)
     d.table('2.3','12 项核与求解器检查',['行','检查','m','侧','主要误差','能量误差'],['line','test','m','side','error','energy'],[rec(r,line=record_no(r),test=tests[r['test']],m=r['m'],side=r['side'],error=r['error'],energy=r.get('energy_error')) for r in newtests],['i','s','s','i','s','s'],'均匀密度与有限环比较采用密度 RMS；梯度和 Hessian 误差见对应检查。',size=8.7)
-    d.note('梯度差分、均匀 Hessian 和独立 JW 比较均通过检查。接下来用非均匀外场检验 NRC-LDA 的误差。')
+    d.note(f'梯度差分、均匀 Hessian 和独立 JW 比较均通过检查。新增 GGA 的梯度、Hessian、符号/平移对称、均匀极限与周期键计数检查共 12 项，最大误差 {gga_summary["structural_max_error"]:.3e}；完整记录见第二部分 gga_structural_checks.csv。')
 
     d.page(2,'2.3　重新拟合能否替代非局域修复')
     refits=b.csv(2,'finite_range_refit_kernels');refit_summary=b.csv(2,'finite_range_refit_summary')
@@ -179,11 +185,11 @@ def build():
     d.p('数据来源：第五轮原始重拟合文件已在清理中删除，本节使用保留的精确核与 JW 密度重新计算。')
 
     d.page(3,'3.1　弱场下的误差变化')
-    d.p('实验取 L=64/128/256、m=2π/L、g₀=1±m、ξ=1/m，配合四类波形，共 24 组。外场为 gᵢ=g₀+λvᵢ，v 均值为零、RMS=1，精确 JW 参考环长 N=8L。比较 LDA、NRC-LDA-R8 和 NRC-LDA，每组取 λ/m=0.0003/0.001/0.003/0.01，用前三点拟合误差阶数。')
+    d.p('实验取 L=64/128/256、m=2π/L、g₀=1±m、ξ=1/m，配合四类波形，共 24 组。外场为 gᵢ=g₀+λvᵢ，v 均值为零、RMS=1，精确 JW 参考环长 N=8L。比较 LDA、文献 GGA、NRC-LDA-R8 和 NRC-LDA，每组取 λ/m=0.0003/0.001/0.003/0.01，用前三点拟合误差阶数。各方法使用相同外场、LDA 输入与精确密度。')
     d.p('密度误差 δ=ρa−ρe 与精确密度处的 Euler 缺陷 zₐ，其领先项都由近似响应与精确响应之差决定：')
     d.eq(r'\delta=\lambda(\chi_a-\chi_e)v+O(\lambda^2),\quad z_a=\lambda(H_a\chi_e-I)v+O(\lambda^2).','delta=lambda(chi_a-chi_e)v+O(lambda^2),quad z_a=lambda(H_a chi_e-I)v+O(lambda^2).')
     rr=sorted([r for r in weak if r['L']==128 and r['side']==1 and r['family']=='mixed_scales'],key=lambda r:(list(COL).index(r['method']),r['ratio']))
-    d.table('3.1','三种方法的幅度序列',['行','方法','λ/m','密度 RMS','Euler RMS','松弛差 G','梯度 ∞范数'],['line','method','ratio','density','euler','G','gradient'],[rec(r,line=record_no(r),method=r['method'],ratio=r['ratio'],density=r['density_rms'],euler=r['euler_defect_rms'],G=r['relaxation_penalty'],gradient=r['projected_gradient']) for r in rr],['i','s','g','s','s','s','s'],'L=128、正侧、混合尺度场 M，共 12 条记录。',size=8.6)
+    d.table('3.1','四种方法的幅度序列',['行','方法','λ/m','密度 RMS','Euler RMS','松弛差 G','梯度 ∞范数'],['line','method','ratio','density','euler','G','gradient'],[rec(r,line=record_no(r),method=r['method'],ratio=r['ratio'],density=r['density_rms'],euler=r['euler_defect_rms'],G=r['relaxation_penalty'],gradient=r['projected_gradient']) for r in rr],['i','s','g','s','s','s','s'],'L=128、正侧、混合尺度场 M，共 16 条记录；GGA 行号对应新增 CSV，其余对应原 CSV。',size=8.6)
     d.fig(3,'07_recorded_error_curves','表 3.1 的误差随幅度变化。浅色区域为拟合窗口，第四点用于检查趋势。',height=54)
     d.note('匹配均匀 Hessian 后，密度误差与 Euler 缺陷的一阶项同时消失。表中 NRC-LDA 的误差随幅度降低得更快。')
 
@@ -193,11 +199,11 @@ def build():
     keys=sorted({(r['L'],r['side'],r['family']) for r in orders},key=lambda k:(k[0],k[1],list(FAMILY).index(k[2])))
     for i,key in enumerate(keys):
         selected=[]
-        for method,metric in [('LDA','density_rms'),('NRC-LDA-R8','density_rms'),('NRC-LDA','density_rms'),('NRC-LDA','euler_defect_rms'),('NRC-LDA','relaxation_penalty')]:selected.append(next(r for r in orders if (r['L'],r['side'],r['family'])==key and r['method']==method and r['metric']==metric and r['window']=='primary'))
-        records.append(dict(group=f'G{i+1:02}',L=key[0],side=key[1],family=FAMILY[key[2]],pLDA=selected[0]['slope'],pR8=selected[1]['slope'],pS=selected[2]['slope'],pz=selected[3]['slope'],pG=selected[4]['slope'],_refs=[r['_ref'] for r in selected]))
-    d.table('3.2','24 组误差阶数',['组','L','侧','场','pρ LDA','pρ R8','pρ NRC-LDA','pz NRC-LDA','pG NRC-LDA'],['group','L','side','family','pLDA','pR8','pS','pz','pG'],records,['s','i','i','s','f','f','f','f','f'],'每行汇总 5 项拟合，原记录位置见配套清单。',size=8.45)
-    d.fig(3,'02_cancellation','表 3.2 的总体阶数分布，黑线为中位数。NRC-LDA 接近 2、2、4；局域或尾部截断对照接近 1、1、2。',height=45)
-    d.note('24 组结果一致：NRC-LDA 的密度与 Euler 误差为二阶，松弛差为四阶；LDA 和 R8 对照仍保留一阶密度误差。')
+        for method,metric in [('LDA','density_rms'),('GGA','density_rms'),('NRC-LDA-R8','density_rms'),('NRC-LDA','density_rms'),('NRC-LDA','euler_defect_rms'),('NRC-LDA','relaxation_penalty')]:selected.append(next(r for r in orders if (r['L'],r['side'],r['family'])==key and r['method']==method and r['metric']==metric and r['window']=='primary'))
+        records.append(dict(group=f'G{i+1:02}',L=key[0],side=key[1],family=FAMILY[key[2]],pLDA=selected[0]['slope'],pGGA=selected[1]['slope'],pR8=selected[2]['slope'],pS=selected[3]['slope'],pz=selected[4]['slope'],pG=selected[5]['slope'],_refs=[r['_ref'] for r in selected]))
+    d.table('3.2','24 组误差阶数',['L','侧','场','pρ LDA','pρ GGA','pρ R8','pρ NRC-LDA','pz NRC-LDA','pG NRC-LDA'],['L','side','family','pLDA','pGGA','pR8','pS','pz','pG'],records,['i','i','s','f','f','f','f','f','f'],'每行汇总 6 项拟合，原记录位置见配套清单。',size=8.45)
+    d.fig(3,'02_cancellation','24 组阶数分布，黑线为中位数。NRC-LDA 接近 2、2、4；LDA、GGA 和尾部截断对照接近 1、1、2。',height=45)
+    d.note('GGA 的密度误差指数为 0.99898–1.00100，Euler 缺陷仍为一阶，松弛差为二阶。增加最近邻梯度项没有消除领先线性误差；NRC-LDA 的密度与 Euler 误差为二阶，松弛差为四阶。')
 
     d.page(3,'3.3　截断非局域尾部后的变化')
     d.p('为检验非局域尾部的作用，只截断核在距离 R 以外的部分，并调整同位点项，使零动量修正保持为零。由均匀响应预测一阶误差系数 C₁=‖IFFT[(χR−χexact)vq]‖RMS，再用正负外场的密度误差之差测量该系数。')
@@ -223,8 +229,12 @@ def build():
     d.p('将密度误差除以外场诱导的密度变化，得到相对误差 ερ；α 表示峰值扰动与临界距离之比。')
     d.eq(r'\epsilon_\rho=\frac{\|\rho_{NRC-LDA}-\rho_e\|_{RMS}}{\|\rho_e-\rho_{hom}(g_0)\|_{RMS}},\quad\alpha=\lambda\|v\|_\infty/m.','epsilon_rho=frac(norm(rho_("NRC-LDA")-rho_e)_("RMS"),norm(rho_e-rho_("hom")(g_0))_("RMS")),quad alpha=lambda norm(v)_infinity/m.')
     rr=sorted([r for r in scan if r['protocol']=='fixed_period' and r['amplitude_kind']=='absolute' and r['lambda']==.001],key=lambda r:(-r['m'],r['side'],r['family']))
-    d.table('4.1','固定 L=32、λ=0.001 的临界扫描',['行','m','侧','场','诱导密度 RMS','误差 RMS','ερ (%)','梯度 ∞范数'],['line','m','side','family','signal','error','epsilon','gradient'],[rec(r,line=record_no(r),m=r['m'],side=r['side'],family=FAMILY[r['family']],signal=r['signal_rms'],error=r['error_rms'],epsilon=r['relative_error'],gradient=r['gradient']) for r in rr],['i','s','i','s','s','s','p','s'],'两侧、两波形，共 28 行；F=四低频模，P=局域波包。',size=8.4)
-    d.note('固定 λ=0.001 时，最大相对误差从 m=0.1 的 0.0855% 增至 m=0.0001 的 6.479%。越接近临界点，剩余非线性误差越需要关注。')
+    comparison=[]
+    for r in rr:
+        c=next(x for x in gga_critical if x['id']==r['id'])
+        comparison.append(dict(line=record_no(r),m=r['m'],side=r['side'],family=FAMILY[r['family']],signal=r['signal_rms'],error=r['error_rms'],epsilon=r['relative_error'],gga=c['relative_error'],lda=c['lda_relative_error'],_refs=ref(r)+ref(c)))
+    d.table('4.1','固定 L=32、λ=0.001 的同场对照',['行','m','侧','场','诱导 RMS','NRC 误差 RMS','NRC ε (%)','GGA ε (%)','LDA ε (%)'],['line','m','side','family','signal','error','epsilon','gga','lda'],comparison,['i','s','i','s','s','s','p','p','p'],'两侧、两波形，共 28 行；NRC=NRC-LDA。行号对应原扫描，GGA 记录按相同外场 id 配对。','三种方法均用同一诱导密度 RMS 归一化。',size=8.4)
+    d.note('m 从 0.1 降至 0.0001 时，GGA 最坏相对误差从 23.47% 增至 169.57%，LDA 从 67.84% 增至 328.13%；NRC-LDA 从 0.0855% 增至 6.479%。GGA 改善了 LDA，但未恢复临界响应；NRC-LDA 的剩余非线性误差也随临界逼近增大。')
 
     d.page(4,'4.2　1% 和 5% 误差下的适用窗口')
     d.p('以 1% 和 5% 为误差标准，从小到大增加扰动幅度，再加密通过与未通过点之间的区间。求解同时满足梯度∞范数<10⁻⁹、背景有效、未触边界且保持原背景侧。表 4.2 汇总两侧、两波形的共同窗口：λ通过为四组都通过的上端点，λ失败为首次有组未通过的幅度。')
@@ -249,6 +259,7 @@ def build():
     failed=[r for r in scan if not r['solver_valid']]
     d.table('4.5','未达求解精度要求的记录',['源行','m','侧/场','λ','ερ (%)','梯度 ∞范数','solver valid'],['line','m','case','lambda','epsilon','gradient','valid'],[rec(r,line=record_no(r),m=r['m'],case=f'{int(r["side"]):+d}/{FAMILY[r["family"]]}',**{'lambda':r['lambda']},epsilon=r['relative_error'],gradient=r['gradient'],valid=r['solver_valid']) for r in failed],['i','s','s','s','p','s','s'],'该点未计入通过窗口。')
     d.p(f'共检查 157 个边界点。加密核表后，密度变化与信号之比最大为 {control["max_refinement_shift_over_signal"]:.5e}，通过/未通过判定均未改变。48 个更高精度积分检查的最大比值为 {control["max_quadrature_shift_over_signal"]:.5e}；均匀响应与独立积分的最大相对差为 {control["max_uniform_quadrature_difference"]:.5e}。')
+    d.p(f'28 个 GGA 对照另做均匀插值表加密与初值检查：密度变化/信号最大 {gga_summary["max_refinement_shift_over_signal"]:.3e}，换初值密度差最大 {gga_summary["max_restart_density_difference"]:.3e}。')
     d.note('加密核表、提高积分精度和更换初值后，窗口边界保持稳定。边界点的最小 Hessian 特征值均为正；表 4.5 的一个点未达求解精度要求，未计入通过窗口。')
 
     d.page(4,'4.4　剩余误差与修复的局限')

@@ -16,8 +16,8 @@ from .common import ROOT, PARTS, WORK_DIRS, read, save, sha, rms
 STAGES = {
     1: ('verify',),
     2: ('verify', 'tests', 'refit'),
-    3: ('verify', 'reproduce'),
-    4: ('verify', 'tests', 'scan', 'analyze', 'refine', 'controls'),
+    3: ('verify', 'reproduce', 'gga'),
+    4: ('verify', 'tests', 'scan', 'analyze', 'refine', 'controls', 'gga'),
 }
 
 
@@ -98,6 +98,8 @@ def main(directory):
                     importlib.import_module('tfim.weak_field.__main__').main()
                 elif stage == 'refit':
                     importlib.import_module('tfim.finite_range_refit').run()
+                elif stage == 'gga':
+                    importlib.import_module('tfim.gga_study').run()
                 else:
                     module, function = {'tests':('study','tests'),'scan':('study','run'),'analyze':('analysis','run'),
                                         'refine':('refinement','run'),'controls':('controls','run')}[stage]
@@ -182,6 +184,8 @@ TFIM/
 | 4 / Applicability | `python run.py` | `python run.py --stages scan analyze refine controls verify`：临界窗口全流程；历史反例保留核验 |
 
 第四部分的 `tests` 调用共用结构检查并写入第二部分 `data/structural_checks.csv`。第四部分 `config/experiment.json` 是这些检查与临界扫描的数值配置；第三部分有自己独立的实验配置。
+
+第三、四部分还支持 `python run.py --stages gga verify`，重算文献 GGA 的 12 项结构检查、96 条弱场对照和 28 条临界对照。共享配置与文献出处在第三部分 `config/gga_control.json`，结果按主题归入第二、三、四部分。TFIM 根目录可用 `python run.py --stages gga report audit` 重算并更新报告；GGA 固定文献参数 J_eff=0.35。
 
 TFIM 根目录保持原来的全流程入口 `python run.py`。仅更新报告、来源索引和打包时运行 `python run.py --stages report audit`；跨项目任务日志写入根目录 `logs/`。第三部分原有 `python -m tfim.weak_field` 入口继续可用。
 

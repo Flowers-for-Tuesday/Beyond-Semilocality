@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "created_utc": "2026-11-17T08:43:49.855483+00:00",
+  "created_utc": "2026-11-17T10:20:47.482298+00:00",
   "checks": [
     {
       "check": "obsolete_project_removed",
@@ -21,6 +21,15 @@
     {
       "check": "uniform_workspace_4",
       "passed": true
+    },
+    {
+      "check": "literature_gga_controls",
+      "passed": true,
+      "status": "passed",
+      "weak_cases": 96,
+      "order_fits": 72,
+      "critical_cases": 28,
+      "structural_checks": 12
     },
     {
       "check": "identical_local_entry_points",
@@ -914,6 +923,18 @@
       "passed": true
     },
     {
+      "check": "report_source_hash_S22",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S23",
+      "passed": true
+    },
+    {
+      "check": "report_source_hash_S24",
+      "passed": true
+    },
+    {
       "check": "report_table_verified_1.1",
       "passed": true,
       "rows": 8
@@ -956,7 +977,7 @@
     {
       "check": "report_table_verified_3.1",
       "passed": true,
-      "rows": 12
+      "rows": 16
     },
     {
       "check": "report_table_verified_3.2",
@@ -1021,7 +1042,7 @@
     {
       "check": "report_table_verified_D.1",
       "passed": true,
-      "rows": 21
+      "rows": 24
     },
     {
       "check": "report_complete_declared_subsets",
@@ -1029,6 +1050,10 @@
     },
     {
       "check": "report_refit_tables_complete",
+      "passed": true
+    },
+    {
+      "check": "report_gga_amplitude_comparison",
       "passed": true
     },
     {
@@ -1215,7 +1240,7 @@
   "pages": [
     {
       "page": 1,
-      "characters": 871,
+      "characters": 942,
       "first_line": "TFIM：最小必要非局域修复"
     },
     {
@@ -1230,12 +1255,12 @@
     },
     {
       "page": 4,
-      "characters": 1248,
+      "characters": 1566,
       "first_line": "2 / Minimal Nonlocal Correction"
     },
     {
       "page": 5,
-      "characters": 1233,
+      "characters": 1307,
       "first_line": "2 / Minimal Nonlocal Correction"
     },
     {
@@ -1245,12 +1270,12 @@
     },
     {
       "page": 7,
-      "characters": 1305,
+      "characters": 1608,
       "first_line": "3 / Error-Cancellation Mechanism"
     },
     {
       "page": 8,
-      "characters": 1736,
+      "characters": 1906,
       "first_line": "3 / Error-Cancellation Mechanism"
     },
     {
@@ -1265,7 +1290,7 @@
     },
     {
       "page": 11,
-      "characters": 2305,
+      "characters": 2651,
       "first_line": "4 / Critical Applicability and Limitations"
     },
     {
@@ -1275,7 +1300,7 @@
     },
     {
       "page": 13,
-      "characters": 1533,
+      "characters": 1600,
       "first_line": "4 / Critical Applicability and Limitations"
     },
     {
@@ -1285,7 +1310,7 @@
     },
     {
       "page": 15,
-      "characters": 1386,
+      "characters": 1499,
       "first_line": "数据索引与复核方法"
     }
   ],

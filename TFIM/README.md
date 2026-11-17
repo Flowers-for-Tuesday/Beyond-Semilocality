@@ -16,11 +16,13 @@ PDF、可编辑正文和完整数据包保存在本地 `report/`，不提交到�
 
 ## 3 / Error-Cancellation Mechanism
 
-[24 组弱场与纯尾部消融](03_Error-Cancellation_Mechanism/README.md)。保留 288 条关键结果及独立复现代码，去除重复对照和候选模型实验。
+[24 组弱场与纯尾部消融](03_Error-Cancellation_Mechanism/README.md)。保留 288 条关键结果，新增文献 GGA 的 96 条同场对照：其密度误差指数为 0.99898–1.00100，仍有领先线性误差。
 
 ## 4 / Critical Applicability and Limitations
 
 [新增 620 个主网格外场与 217 个边界加密点的适用窗口](04_Critical_Applicability_and_Limitations/README.md)。以误差占诱导密度响应的 1%/5% 定义“可以忽略”，同时检验临界距离、扰动幅度和波长。
+
+GGA 对照采用 [Mao 等（2021），Phys. Rev. B 104, 155145](https://doi.org/10.1103/PhysRevB.104.155145) 式 (13)，固定 J_eff=0.35。在固定 L=32、λ=0.001 的 28 个同场比较中，GGA 改善 LDA，但接近临界时仍有明显响应误差。参数、原始密度、拟合与数值检查均已保存。
 
 固定 L=32、λ=0.001，最坏相对误差由 m=0.1 时约 0.0855% 增至 m=0.0001 时约 6.479%。**消除领先线性误差，不保证固定幅度下无限逼近临界点仍然准确。**
 
@@ -32,7 +34,7 @@ PDF、可编辑正文和完整数据包保存在本地 `report/`，不提交到�
 python run.py
 ```
 
-默认依次执行结构测试、新临界扫描、窗口提取、阈值边界加密、边界数值控制、报告和审计。也可使用 `python run.py --stages analyze report audit`。第三部分全部 288 条保留弱场结果可用 `python -m tfim.weak_field` 独立重算；第四部分可用默认命令重算。原始密度、关键反例记录和必要核输入均已迁入 TFIM，不依赖任何旧目录。
+默认依次执行结构测试、新临界扫描、窗口提取、阈值边界加密、边界数值控制、GGA 对照、报告和审计。仅重算本次 GGA 对照并更新报告：`python run.py --stages gga report audit`。第三部分全部 288 条保留弱场结果可用 `python -m tfim.weak_field` 独立重算；第四部分可用默认命令重算。原始密度、关键反例记录和必要核输入均已迁入 TFIM，不依赖任何旧目录。
 
 四个子项目均使用 `config / data / profiles / cache / figures / logs`，各有 `README.md` 和 `run.py`。进入任一子项目运行 `python run.py` 默认核验已有数据；可重算阶段见 [目录与运行入口](DIRECTORY_STRUCTURE.md)。第三、四部分的实验配置分别位于各自的 `config/experiment.json`，跨项目任务日志在根目录 `logs/`。
 

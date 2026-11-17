@@ -5,10 +5,10 @@
     "24-group weak-field cancellation and tail causality",
     "Existing higher-response and branch counterexamples",
     "New critical-distance/amplitude window study",
-    "Finite-range coefficient refit control supporting NRC-LDA minimality; reconstructed from retained kernels, not recovered fifth-round files"
+    "Finite-range coefficient refit control supporting NRC-LDA minimality; reconstructed from retained kernels, not recovered fifth-round files",
+    "Mao et al. (2021) GGA with published J_eff=0.35: weak-field order and fixed-amplitude critical-path controls"
   ],
   "excluded": [
-    "GGA duplicate baseline",
     "PLR/H2/L2 candidate comparisons",
     "Unrelated parameter-tuning and high-order approximation searches; finite-range structural refit control retained",
     "Repeated single-mode and dual-mode benchmarks",

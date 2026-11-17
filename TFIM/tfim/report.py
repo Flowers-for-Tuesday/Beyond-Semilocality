@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 from .common import ROOT,NEW,PARTS,read,write,save
 
-COL={'LDA':'#7a818b','NRC-LDA-R8':'#a34f79','NRC-LDA':'#087e91'}
+COL={'LDA':'#7a818b','GGA':'#c28224','NRC-LDA-R8':'#a34f79','NRC-LDA':'#087e91'}
 def data(part,name):return read(ROOT/PARTS[part]/'data'/f'{name}.csv')
 def finish(fig,name):
     part=0 if name.startswith('01_') else 2 if name.startswith('02_') else 3
@@ -27,12 +27,21 @@ def figures():
     for R,c in [(1,COL['LDA']),(8,COL['NRC-LDA-R8'])]:
         a=sorted([r for r in rr if r['R']==R and r['side']==1],key=lambda r:r['mass']);axs[2].loglog([1/r['mass'] for r in a],[r['scaled_prediction_sup'] for r in a],'o-',color=c,label=f'R={R}')
     axs[2].set(xlabel='$1/m$',ylabel='scaled finite-range norm',title='Fixed bounded range');axs[2].legend(fontsize=8);finish(fig,'01_no_go')
-    fig,axs=plt.subplots(1,3,figsize=(10.4,3.1),layout='constrained');orders=data(2,'weak_field_orders')
+    fig,axs=plt.subplots(1,3,figsize=(10.4,3.1),layout='constrained');orders=data(2,'weak_field_orders')+data(2,'gga_orders')
     for ax,metric,label in zip(axs,['density_rms','euler_defect_rms','relaxation_penalty'],['Density error','Euler defect','Same-functional relaxation']):
         for i,m in enumerate(COL):
             vals=[r['slope'] for r in orders if r['method']==m and r['metric']==metric and r['window']=='primary'];ax.scatter(i+np.linspace(-.14,.14,len(vals)),vals,s=16,color=COL[m]);ax.plot([i-.2,i+.2],[np.median(vals)]*2,'k-',lw=.8)
-        ax.set(xticks=range(3),xticklabels=list(COL),ylabel='error exponent',title=label)
+        ax.set(xticks=range(len(COL)),xticklabels=list(COL),ylabel='error exponent',title=label)
+        ax.tick_params(axis='x',labelsize=7)
     finish(fig,'02_cancellation')
+    comparison=data(3,'gga_critical_path');fig,axs=plt.subplots(1,2,figsize=(10.4,3.7),layout='constrained')
+    for ax,family,title in zip(axs,['four_low_modes','localized_packet'],['Four low modes','Localized packet']):
+        rr=[r for r in comparison if r['family']==family];mm=sorted({r['m'] for r in rr})
+        for method,key in [('LDA','lda_relative_error'),('GGA','relative_error'),('NRC-LDA','nrc_relative_error')]:
+            ax.loglog(mm,[max(r[key] for r in rr if r['m']==m) for m in mm],'o-',color=COL[method],label=method,ms=4)
+        ax.axhline(.01,color='k',ls=':',lw=.8);ax.axhline(.05,color='k',ls='--',lw=.8)
+        ax.set(xlabel='$m$',ylabel='error / induced density response',title=title+'; worst of two sides');ax.legend(fontsize=8)
+    finish(fig,'09_gga_critical_comparison')
     rows=data(3,'window_scan');fixed=[r for r in rows if r['protocol']=='fixed_period'];ms=sorted(set(r['m'] for r in fixed));fig,axs=plt.subplots(1,2,figsize=(10.4,4),layout='constrained')
     for ax,kind,xkey,label in [(axs[0],'scaled','alpha',r'$\alpha=\lambda\|v\|_\infty/m$'),(axs[1],'absolute','lambda',r'fixed $\lambda$')]:
         aa=sorted(set(r[xkey] for r in fixed if r['amplitude_kind']==kind));z=np.array([[max(r['relative_error'] for r in fixed if r['m']==m and r['amplitude_kind']==kind and r[xkey]==a) for a in aa] for m in ms]);pc=ax.pcolormesh(edge(aa),edge(ms),z,norm=LogNorm(1e-5,.5),cmap='viridis',shading='flat');cs=ax.contour(aa,ms,z,levels=[.01,.05],colors=['white','#f4b15b'],linewidths=1.2);ax.clabel(cs,fmt={.01:'1%',.05:'5%'},fontsize=8)

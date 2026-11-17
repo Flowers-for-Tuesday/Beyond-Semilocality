@@ -1,0 +1,36 @@
+{
+  "reference": {
+    "title": "Testing density functional theory in a quantum Ising chain",
+    "authors": "Jiahao Mao, Haifeng Tang, Wenhui Duan, Zheng Liu",
+    "journal": "Physical Review B 104, 155145 (2021)",
+    "doi": "10.1103/PhysRevB.104.155145",
+    "url": "https://doi.org/10.1103/PhysRevB.104.155145",
+    "open_manuscript": "https://arxiv.org/pdf/2108.03927",
+    "equation": 13
+  },
+  "functional": "F_GGA = F_LDA + J_eff sum_i (rho_i^2 - rho_(i+1)^2)^2",
+  "J_eff": 0.35,
+  "refit": false,
+  "convention": "J=1, Pauli density rho=<sigma_x>, periodic bonds counted once",
+  "weak_field": {
+    "periods": [64, 128, 256],
+    "sides": [-1, 1],
+    "families": ["four_low_modes", "mixed_scales", "localized_packet", "twelve_modes"],
+    "ratios": [0.0003, 0.001, 0.003, 0.01],
+    "primary_ratios": [0.0003, 0.001, 0.003],
+    "reference": "Retained finite-ring JW profiles, N=8L; unchanged fields and LDA interpolant"
+  },
+  "critical": {
+    "L": 32,
+    "lambda": 0.001,
+    "masses": [0.1, 0.03, 0.01, 0.003, 0.001, 0.0003, 0.0001],
+    "sides": [-1, 1],
+    "families": ["four_low_modes", "localized_packet"],
+    "reference": "28 retained absolute-amplitude thermodynamic Bloch/JW profiles",
+    "normalization": "RMS(rho_model-rho_exact)/RMS(rho_exact-rho_hom(g0))"
+  },
+  "purposes": [
+    "Check whether the published GGA removes the leading linear density and Euler errors",
+    "Compare the same fixed-amplitude critical path without changing the NRC-LDA window experiment"
+  ]
+}
